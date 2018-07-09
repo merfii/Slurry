@@ -1,0 +1,710 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{B12702AD-ABFB-343A-A199-8E24837244A3}</ProjectGuid>
+    <Keyword>Qt4VSv1.0</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="Props\OpenCVd.props" />
+    <Import Project="Props\Pylon.props" />
+    <Import Project="Props\PCLd.props" />
+    <Import Project="Props\VTK7.1d.props" />
+    <Import Project="Props\ViSPd.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="Props\Pylon.props" />
+    <Import Project="Props\ViSP.props" />
+    <Import Project="Props\OpenCV.props" />
+    <Import Project="Props\PCL.props" />
+    <Import Project="Props\VTK7.1.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>12.0.30501.0</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+    <LibraryPath>$(LibraryPath)</LibraryPath>
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+    <LibraryPath>$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PreprocessorDefinitions>UNICODE;WIN32;WIN64;QT_DLL;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;QT_TESTLIB_LIB;QT_XML_LIB;QT_NETWORK_LIB;_SCL_SECURE_NO_WARNINGS;QT_SERIALPORT_LIB;QT_XMLPATTERNS_LIB;QT_MULTIMEDIA_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.\RobotController;.\RobotController\libs;.\GeneratedFiles;.\widget;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest;$(QTDIR)\include\QtXml;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtSerialPort;$(QTDIR)\include\QtXmlPatterns;$(QTDIR)\include\QtMultimedia;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <Optimization>Disabled</Optimization>
+      <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
+      <MinimalRebuild>true</MinimalRebuild>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
+      <AdditionalLibraryDirectories>$(QTDIR)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>qtmaind.lib;Qt5Cored.lib;Qt5Guid.lib;Qt5Widgetsd.lib;Qt5Testd.lib;Qt5Xmld.lib;Qt5Networkd.lib;Qt5SerialPortd.lib;Qt5XmlPatternsd.lib;Qt5Multimediad.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PreprocessorDefinitions>UNICODE;WIN32;WIN64;QT_DLL;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;QT_TESTLIB_LIB;QT_XML_LIB;QT_NETWORK_LIB;QT_SERIALPORT_LIB;QT_XMLPATTERNS_LIB;QT_MULTIMEDIA_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.\RobotController;.\RobotController\libs;.\GeneratedFiles;.\widget;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtTest;$(QTDIR)\include\QtXml;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtSerialPort;$(QTDIR)\include\QtXmlPatterns;$(QTDIR)\include\QtMultimedia;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat />
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
+      <AdditionalLibraryDirectories>$(QTDIR)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <AdditionalDependencies>qtmain.lib;Qt5Core.lib;Qt5Gui.lib;Qt5Widgets.lib;Qt5Test.lib;Qt5Xml.lib;Qt5Network.lib;Qt5SerialPort.lib;Qt5XmlPatterns.lib;Qt5Multimedia.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="AudioPlayer.cpp" />
+    <ClCompile Include="CTImageVisualization.cpp" />
+    <ClCompile Include="FpsCounter.cpp" />
+    <ClCompile Include="FrameProcessor.cpp" />
+    <ClCompile Include="CameraController.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">/bigobj %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="FrmProcessorScan.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_AudioPlayer.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_CalibrationDialog.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_FpsCounter.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_FrmProcessorCameraCalibration.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_FrmProcessorDisp.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_FrmProcessorLaserCalibration.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_FrmProcessorScan.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_PathRecorder.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_QConsole.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_QPilot.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_Slurry.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_TestPointsGenerator.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_ToolCalibrationDialog.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_Viewer2D.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_Viewer2DGL.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_vtkRobotModel.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_VtkWindow.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_AudioPlayer.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_CalibrationDialog.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_FpsCounter.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_FrmProcessorCameraCalibration.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_FrmProcessorDisp.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_FrmProcessorLaserCalibration.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_FrmProcessorScan.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="FrmProcessorCameraCalibration.cpp" />
+    <ClCompile Include="FrmProcessorDisp.cpp" />
+    <ClCompile Include="FrmProcessorLaserCalibration.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_LaserDialog.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_LaserProjectorAndSensor.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_RobotController.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_RobotControllerDialog.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_UrDashboardCommunication.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_UrRealtimeCommunication.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\qrc_slurry.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="CalibrationDialog.cpp" />
+    <ClCompile Include="GeneratedFiles\Release\moc_LaserDialog.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_LaserProjectorAndSensor.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_PathRecorder.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_QConsole.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_QPilot.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_RobotController.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_RobotControllerDialog.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_Slurry.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_TestPointsGenerator.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_ToolCalibrationDialog.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_UrDashboardCommunication.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_UrRealtimeCommunication.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_Viewer2D.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_Viewer2DGL.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_vtkRobotModel.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_VtkWindow.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="LaserDialog.cpp" />
+    <ClCompile Include="LaserProjectorAndSensor.cpp" />
+    <ClCompile Include="Logger.cpp">
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Moc%27ing Logger.cpp...</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Moc%27ing Logger.cpp...</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+    </ClCompile>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="PCL_implements.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="SlurryRobotController.cpp" />
+    <ClCompile Include="RobotController\libs\RobotState.cpp" />
+    <ClCompile Include="RobotController\libs\RobotStateRT.cpp" />
+    <ClCompile Include="RobotController\libs\UrDashboardCommunication.cpp" />
+    <ClCompile Include="RobotController\libs\UrRealtimeCommunication.cpp" />
+    <ClCompile Include="RobotController\PathRecorder.cpp" />
+    <ClCompile Include="RobotController\RobotException.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="RobotController\RobotFrame.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="RobotController\RobotController.cpp" />
+    <ClCompile Include="RobotController\RobotControllerDialog.cpp" />
+    <ClCompile Include="RobotController\RobotPath.cpp" />
+    <ClCompile Include="RobotController\RobotStateHistory.cpp" />
+    <ClCompile Include="ScanVisualizer.cpp" />
+    <ClCompile Include="Slurry.cpp" />
+    <ClCompile Include="SystemParameter.cpp" />
+    <ClCompile Include="test.cpp" />
+    <ClCompile Include="TestPointsGenerator.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="ToolCalibrationDialog.cpp" />
+    <ClCompile Include="vtkGuiderWidget.cpp" />
+    <ClCompile Include="vtkRobotModel.cpp" />
+    <ClCompile Include="widget\QPilot.cpp" />
+    <ClCompile Include="widget\QConsole.cpp" />
+    <ClCompile Include="widget\Viewer2DGL.cpp" />
+    <ClCompile Include="widget\Viewer2D.cpp" />
+    <ClCompile Include="widget\VtkWindow.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="Slurry.h">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Moc%27ing Slurry.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_DLL -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_TESTLIB_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -D_SCL_SECURE_NO_WARNINGS -DQT_SERIALPORT_LIB -DQT_XMLPATTERNS_LIB -DQT_MULTIMEDIA_LIB -D_UNICODE  "-I.\RobotController" "-I.\RobotController\libs" "-I.\GeneratedFiles" "-I.\widget" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtTest" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtXmlPatterns" "-I$(QTDIR)\include\QtMultimedia" "-ID:\PCL\include\pcl-1.8" "-ID:\PCL\3rdParty\Boost\include\boost-1_61" "-ID:\PCL\3rdParty\FLANN\include" "-ID:\PCL\3rdParty\Eigen\eigen3" "-ID:\ViSP\include" "-ID:\OpenCV\include" "-ID:\ViSP\thirdparty\zlib\include" "-ID:\ViSP\thirdparty\libjpeg\include" "-ID:\ViSP\thirdparty\libpng\include" "-ID:\PCL\3rdParty\VTK\include" "-ID:\PCL\3rdParty\VTK\include\vtk-7.0" "-I$(PYLON_DEV_DIR)\include" "-I$(NOINHERIT)\."</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Moc%27ing Slurry.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_DLL -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_TESTLIB_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_XMLPATTERNS_LIB -DQT_MULTIMEDIA_LIB -D_UNICODE  "-I.\RobotController" "-I.\RobotController\libs" "-I.\GeneratedFiles" "-I.\widget" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtTest" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtXmlPatterns" "-I$(QTDIR)\include\QtMultimedia" "-ID:\ViSP\include" "-ID:\OpenCV\include" "-ID:\ViSP\thirdparty\zlib\include" "-ID:\ViSP\thirdparty\libjpeg\include" "-ID:\ViSP\thirdparty\libpng\include" "-ID:\PCL\3rdParty\VTK\include" "-ID:\PCL\3rdParty\VTK\include\vtk-7.0" "-I$(PYLON_DEV_DIR)\include" "-I$(NOINHERIT)\."</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="Slurry.ui">
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Uic%27ing %(Identity)...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Uic%27ing %(Identity)...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
+      <SubType>Designer</SubType>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="CalibrationDialog.h">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Moc%27ing CalibrationDialog.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_DLL -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_TESTLIB_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -D_SCL_SECURE_NO_WARNINGS -DQT_SERIALPORT_LIB -DQT_XMLPATTERNS_LIB -DQT_MULTIMEDIA_LIB -D_UNICODE  "-I.\RobotController" "-I.\RobotController\libs" "-I.\GeneratedFiles" "-I.\widget" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtTest" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtXmlPatterns" "-I$(QTDIR)\include\QtMultimedia" "-ID:\PCL\include\pcl-1.8" "-ID:\PCL\3rdParty\Boost\include\boost-1_61" "-ID:\PCL\3rdParty\FLANN\include" "-ID:\PCL\3rdParty\Eigen\eigen3" "-ID:\ViSP\include" "-ID:\OpenCV\include" "-ID:\ViSP\thirdparty\zlib\include" "-ID:\ViSP\thirdparty\libjpeg\include" "-ID:\ViSP\thirdparty\libpng\include" "-ID:\PCL\3rdParty\VTK\include" "-ID:\PCL\3rdParty\VTK\include\vtk-7.0" "-I$(PYLON_DEV_DIR)\include" "-I$(NOINHERIT)\."</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Moc%27ing CalibrationDialog.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_DLL -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_TESTLIB_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_XMLPATTERNS_LIB -DQT_MULTIMEDIA_LIB -D_UNICODE  "-I.\RobotController" "-I.\RobotController\libs" "-I.\GeneratedFiles" "-I.\widget" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtTest" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtXmlPatterns" "-I$(QTDIR)\include\QtMultimedia" "-ID:\ViSP\include" "-ID:\OpenCV\include" "-ID:\ViSP\thirdparty\zlib\include" "-ID:\ViSP\thirdparty\libjpeg\include" "-ID:\ViSP\thirdparty\libpng\include" "-ID:\PCL\3rdParty\VTK\include" "-ID:\PCL\3rdParty\VTK\include\vtk-7.0" "-I$(PYLON_DEV_DIR)\include" "-I$(NOINHERIT)\."</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="FrameProcessor.h">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </Command>
+    </CustomBuild>
+    <CustomBuild Include="CameraController.h">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </Command>
+    </CustomBuild>
+    <CustomBuild Include="GlobalShared.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Performing Custom Build Tools</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Performing Custom Build Tools</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </AdditionalInputs>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="slurry.qrc">
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(FullPath);%(AdditionalInputs)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Rcc%27ing %(Identity)...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles\qrc_%(Filename).cpp;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(QTDIR)\bin\rcc.exe" -name "%(Filename)" -no-compress "%(FullPath)" -o .\GeneratedFiles\qrc_%(Filename).cpp</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(FullPath);%(AdditionalInputs)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Rcc%27ing %(Identity)...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\qrc_%(Filename).cpp;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QTDIR)\bin\rcc.exe" -name "%(Filename)" -no-compress "%(FullPath)" -o .\GeneratedFiles\qrc_%(Filename).cpp</Command>
+      <SubType>Designer</SubType>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Slurry.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="CalibrationDialog.ui">
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Uic%27ing %(Identity)...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Uic%27ing %(Identity)...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
+      <SubType>Designer</SubType>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="RobotControllerDialog.ui">
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Uic%27ing %(Identity)...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Uic%27ing %(Identity)...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
+      <SubType>Designer</SubType>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="ToolCalibrationDialog.h">
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Moc%27ing ToolCalibrationDialog.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_DLL -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_TESTLIB_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -D_SCL_SECURE_NO_WARNINGS -DQT_SERIALPORT_LIB -DQT_XMLPATTERNS_LIB -DQT_MULTIMEDIA_LIB -D_UNICODE "-I.\RobotController" "-I.\RobotController\libs" "-I.\GeneratedFiles" "-I.\widget" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtTest" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtXmlPatterns" "-I$(QTDIR)\include\QtMultimedia" "-ID:\ViSP\include" "-ID:\OpenCV\include" "-ID:\ViSP\thirdparty\zlib\include" "-ID:\ViSP\thirdparty\libjpeg\include" "-ID:\ViSP\thirdparty\libpng\include" "-ID:\VTK7\VTK-7.1.1\Install\include\vtk-7.1" "-ID:\PCL\include\pcl-1.8" "-ID:\PCL\3rdParty\Boost\include\boost-1_61" "-ID:\PCL\3rdParty\FLANN\include" "-ID:\PCL\3rdParty\Eigen\eigen3" "-I$(PYLON_DEV_DIR)\include" "-I$(NOINHERIT)\."</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Moc%27ing ToolCalibrationDialog.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_DLL -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_TESTLIB_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_XMLPATTERNS_LIB -DQT_MULTIMEDIA_LIB -D_UNICODE "-I.\RobotController" "-I.\RobotController\libs" "-I.\GeneratedFiles" "-I.\widget" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtTest" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtXmlPatterns" "-I$(QTDIR)\include\QtMultimedia" "-ID:\VTK7\VTK-7.1.1\Install\include\vtk-7.1" "-ID:\PCL\include\pcl-1.8" "-ID:\PCL\3rdParty\Boost\include\boost-1_61" "-ID:\PCL\3rdParty\FLANN\include" "-ID:\PCL\3rdParty\Eigen\eigen3" "-ID:\ViSP\include" "-ID:\OpenCV\include" "-ID:\ViSP\thirdparty\zlib\include" "-ID:\ViSP\thirdparty\libjpeg\include" "-ID:\ViSP\thirdparty\libpng\include" "-I$(PYLON_DEV_DIR)\include" "-I$(NOINHERIT)\."</Command>
+    </CustomBuild>
+    <ClInclude Include="GeneratedFiles\ui_ToolCalibrationDialog.h" />
+    <ClInclude Include="Utils.h" />
+    <ClInclude Include="vtkGuiderWidget.h" />
+    <CustomBuild Include="widget\QPilot.h">
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\moc.exe;%(FullPath);$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Moc%27ing QPilot.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_DLL -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_TESTLIB_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -D_SCL_SECURE_NO_WARNINGS -DQT_SERIALPORT_LIB -DQT_XMLPATTERNS_LIB -DQT_MULTIMEDIA_LIB -D_UNICODE "-I.\RobotController" "-I.\RobotController\libs" "-I.\GeneratedFiles" "-I.\widget" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtTest" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtXmlPatterns" "-I$(QTDIR)\include\QtMultimedia" "-ID:\ViSP\include" "-ID:\OpenCV\include" "-ID:\ViSP\thirdparty\zlib\include" "-ID:\ViSP\thirdparty\libjpeg\include" "-ID:\ViSP\thirdparty\libpng\include" "-ID:\VTK7\VTK-7.1.1\Install\include\vtk-7.1" "-ID:\PCL\include\pcl-1.8" "-ID:\PCL\3rdParty\Boost\include\boost-1_61" "-ID:\PCL\3rdParty\FLANN\include" "-ID:\PCL\3rdParty\Eigen\eigen3" "-I$(PYLON_DEV_DIR)\include" "-I$(NOINHERIT)\."</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)\bin\moc.exe;%(FullPath);$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Moc%27ing QPilot.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_DLL -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_TESTLIB_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_XMLPATTERNS_LIB -DQT_MULTIMEDIA_LIB -D_UNICODE "-I.\RobotController" "-I.\RobotController\libs" "-I.\GeneratedFiles" "-I.\widget" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtTest" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtXmlPatterns" "-I$(QTDIR)\include\QtMultimedia" "-ID:\VTK7\VTK-7.1.1\Install\include\vtk-7.1" "-ID:\PCL\include\pcl-1.8" "-ID:\PCL\3rdParty\Boost\include\boost-1_61" "-ID:\PCL\3rdParty\FLANN\include" "-ID:\PCL\3rdParty\Eigen\eigen3" "-ID:\ViSP\include" "-ID:\OpenCV\include" "-ID:\ViSP\thirdparty\zlib\include" "-ID:\ViSP\thirdparty\libjpeg\include" "-ID:\ViSP\thirdparty\libpng\include" "-I$(PYLON_DEV_DIR)\include" "-I$(NOINHERIT)\."</Command>
+    </CustomBuild>
+    <CustomBuild Include="TestPointsGenerator.h">
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Moc%27ing TestPointsGenerator.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_DLL -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_TESTLIB_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -D_SCL_SECURE_NO_WARNINGS -DQT_SERIALPORT_LIB -DQT_XMLPATTERNS_LIB -DQT_MULTIMEDIA_LIB -D_UNICODE "-I.\RobotController" "-I.\RobotController\libs" "-I.\GeneratedFiles" "-I.\widget" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtTest" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtXmlPatterns" "-I$(QTDIR)\include\QtMultimedia" "-ID:\VTK7\VTK-7.1.1\Install\include\vtk-7.1" "-ID:\PCL\include\pcl-1.8" "-ID:\PCL\3rdParty\Boost\include\boost-1_61" "-ID:\PCL\3rdParty\FLANN\include" "-ID:\PCL\3rdParty\Eigen\eigen3" "-ID:\ViSP\include" "-ID:\OpenCV\include" "-ID:\ViSP\thirdparty\zlib\include" "-ID:\ViSP\thirdparty\libjpeg\include" "-ID:\ViSP\thirdparty\libpng\include" "-I$(PYLON_DEV_DIR)\include" "-I$(NOINHERIT)\."</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Moc%27ing TestPointsGenerator.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_DLL -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_TESTLIB_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_XMLPATTERNS_LIB -DQT_MULTIMEDIA_LIB -D_UNICODE "-I.\RobotController" "-I.\RobotController\libs" "-I.\GeneratedFiles" "-I.\widget" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtTest" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtXmlPatterns" "-I$(QTDIR)\include\QtMultimedia" "-ID:\PCL\include\pcl-1.8" "-ID:\PCL\3rdParty\Boost\include\boost-1_61" "-ID:\PCL\3rdParty\FLANN\include" "-ID:\PCL\3rdParty\Eigen\eigen3" "-ID:\ViSP\include" "-ID:\OpenCV\include" "-ID:\ViSP\thirdparty\zlib\include" "-ID:\ViSP\thirdparty\libjpeg\include" "-ID:\ViSP\thirdparty\libpng\include" "-ID:\PCL\3rdParty\VTK\include" "-ID:\PCL\3rdParty\VTK\include\vtk-7.0" "-I$(PYLON_DEV_DIR)\include" "-I$(NOINHERIT)\."</Command>
+    </CustomBuild>
+    <CustomBuild Include="vtkRobotModel.h">
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Moc%27ing vtkRobotModel.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_DLL -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_TESTLIB_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -D_SCL_SECURE_NO_WARNINGS -DQT_SERIALPORT_LIB -DQT_XMLPATTERNS_LIB -DQT_MULTIMEDIA_LIB -D_UNICODE "-I.\RobotController" "-I.\RobotController\libs" "-I.\GeneratedFiles" "-I.\widget" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtTest" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtXmlPatterns" "-I$(QTDIR)\include\QtMultimedia" "-ID:\VTK7\VTK-7.1.1\Install\include\vtk-7.1" "-ID:\PCL\include\pcl-1.8" "-ID:\PCL\3rdParty\Boost\include\boost-1_61" "-ID:\PCL\3rdParty\FLANN\include" "-ID:\PCL\3rdParty\Eigen\eigen3" "-ID:\ViSP\include" "-ID:\OpenCV\include" "-ID:\ViSP\thirdparty\zlib\include" "-ID:\ViSP\thirdparty\libjpeg\include" "-ID:\ViSP\thirdparty\libpng\include" "-I$(PYLON_DEV_DIR)\include" "-I$(NOINHERIT)\."</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Moc%27ing vtkRobotModel.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_DLL -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_TESTLIB_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_XMLPATTERNS_LIB -DQT_MULTIMEDIA_LIB -D_UNICODE "-I.\RobotController" "-I.\RobotController\libs" "-I.\GeneratedFiles" "-I.\widget" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtTest" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtXmlPatterns" "-I$(QTDIR)\include\QtMultimedia" "-ID:\PCL\include\pcl-1.8" "-ID:\PCL\3rdParty\Boost\include\boost-1_61" "-ID:\PCL\3rdParty\FLANN\include" "-ID:\PCL\3rdParty\Eigen\eigen3" "-ID:\ViSP\include" "-ID:\OpenCV\include" "-ID:\ViSP\thirdparty\zlib\include" "-ID:\ViSP\thirdparty\libjpeg\include" "-ID:\ViSP\thirdparty\libpng\include" "-ID:\PCL\3rdParty\VTK\include" "-ID:\PCL\3rdParty\VTK\include\vtk-7.0" "-I$(PYLON_DEV_DIR)\include" "-I$(NOINHERIT)\."</Command>
+    </CustomBuild>
+    <CustomBuild Include="FrmProcessorCameraCalibration.h">
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\moc.exe;%(FullPath);$(QTDIR)\bin\moc.exe;%(FullPath);$(QTDIR)\bin\moc.exe;%(FullPath);$(QTDIR)\bin\moc.exe;%(FullPath);$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Moc%27ing FrmProcessorCameraCalibration.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_DLL -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_TESTLIB_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -D_SCL_SECURE_NO_WARNINGS -DQT_SERIALPORT_LIB -DQT_XMLPATTERNS_LIB -DQT_MULTIMEDIA_LIB -D_UNICODE "-I.\RobotController" "-I.\RobotController\libs" "-I.\GeneratedFiles" "-I.\widget" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtTest" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtXmlPatterns" "-I$(QTDIR)\include\QtMultimedia" "-ID:\PCL\include\pcl-1.8" "-ID:\PCL\3rdParty\Boost\include\boost-1_61" "-ID:\PCL\3rdParty\FLANN\include" "-ID:\PCL\3rdParty\Eigen\eigen3" "-ID:\ViSP\include" "-ID:\OpenCV\include" "-ID:\ViSP\thirdparty\zlib\include" "-ID:\ViSP\thirdparty\libjpeg\include" "-ID:\ViSP\thirdparty\libpng\include" "-ID:\PCL\3rdParty\VTK\include" "-ID:\PCL\3rdParty\VTK\include\vtk-7.0" "-I$(PYLON_DEV_DIR)\include" "-I$(NOINHERIT)\."</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)\bin\moc.exe;%(FullPath);$(QTDIR)\bin\moc.exe;%(FullPath);$(QTDIR)\bin\moc.exe;%(FullPath);$(QTDIR)\bin\moc.exe;%(FullPath);$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Moc%27ing FrmProcessorCameraCalibration.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_DLL -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_TESTLIB_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_XMLPATTERNS_LIB -DQT_MULTIMEDIA_LIB -D_UNICODE "-I.\RobotController" "-I.\RobotController\libs" "-I.\GeneratedFiles" "-I.\widget" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtTest" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtXmlPatterns" "-I$(QTDIR)\include\QtMultimedia" "-ID:\ViSP\include" "-ID:\OpenCV\include" "-ID:\ViSP\thirdparty\zlib\include" "-ID:\ViSP\thirdparty\libjpeg\include" "-ID:\ViSP\thirdparty\libpng\include" "-ID:\PCL\3rdParty\VTK\include" "-ID:\PCL\3rdParty\VTK\include\vtk-7.0" "-I$(PYLON_DEV_DIR)\include" "-I$(NOINHERIT)\."</Command>
+    </CustomBuild>
+    <CustomBuild Include="FrmProcessorLaserCalibration.h">
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\moc.exe;%(FullPath);$(QTDIR)\bin\moc.exe;%(FullPath);$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Moc%27ing FrmProcessorLaserCalibration.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_DLL -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_TESTLIB_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -D_SCL_SECURE_NO_WARNINGS -DQT_SERIALPORT_LIB -DQT_XMLPATTERNS_LIB -DQT_MULTIMEDIA_LIB -D_UNICODE  "-I.\RobotController" "-I.\RobotController\libs" "-I.\GeneratedFiles" "-I.\widget" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtTest" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtXmlPatterns" "-I$(QTDIR)\include\QtMultimedia" "-ID:\PCL\include\pcl-1.8" "-ID:\PCL\3rdParty\Boost\include\boost-1_61" "-ID:\PCL\3rdParty\FLANN\include" "-ID:\PCL\3rdParty\Eigen\eigen3" "-ID:\ViSP\include" "-ID:\OpenCV\include" "-ID:\ViSP\thirdparty\zlib\include" "-ID:\ViSP\thirdparty\libjpeg\include" "-ID:\ViSP\thirdparty\libpng\include" "-ID:\PCL\3rdParty\VTK\include" "-ID:\PCL\3rdParty\VTK\include\vtk-7.0" "-I$(PYLON_DEV_DIR)\include" "-I$(NOINHERIT)\."</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)\bin\moc.exe;%(FullPath);$(QTDIR)\bin\moc.exe;%(FullPath);$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Moc%27ing FrmProcessorLaserCalibration.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_DLL -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_TESTLIB_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_XMLPATTERNS_LIB -DQT_MULTIMEDIA_LIB -D_UNICODE  "-I.\RobotController" "-I.\RobotController\libs" "-I.\GeneratedFiles" "-I.\widget" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtTest" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtXmlPatterns" "-I$(QTDIR)\include\QtMultimedia" "-ID:\ViSP\include" "-ID:\OpenCV\include" "-ID:\ViSP\thirdparty\zlib\include" "-ID:\ViSP\thirdparty\libjpeg\include" "-ID:\ViSP\thirdparty\libpng\include" "-ID:\PCL\3rdParty\VTK\include" "-ID:\PCL\3rdParty\VTK\include\vtk-7.0" "-I$(PYLON_DEV_DIR)\include" "-I$(NOINHERIT)\."</Command>
+    </CustomBuild>
+    <CustomBuild Include="AudioPlayer.h">
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Moc%27ing AudioPlayer.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_DLL -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_TESTLIB_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -D_SCL_SECURE_NO_WARNINGS -DQT_SERIALPORT_LIB -DQT_XMLPATTERNS_LIB -DQT_MULTIMEDIA_LIB -D_UNICODE  "-I.\RobotController" "-I.\RobotController\libs" "-I.\GeneratedFiles" "-I.\widget" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtTest" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtXmlPatterns" "-I$(QTDIR)\include\QtMultimedia" "-ID:\PCL\include\pcl-1.8" "-ID:\PCL\3rdParty\Boost\include\boost-1_61" "-ID:\PCL\3rdParty\FLANN\include" "-ID:\PCL\3rdParty\Eigen\eigen3" "-ID:\ViSP\include" "-ID:\OpenCV\include" "-ID:\ViSP\thirdparty\zlib\include" "-ID:\ViSP\thirdparty\libjpeg\include" "-ID:\ViSP\thirdparty\libpng\include" "-ID:\PCL\3rdParty\VTK\include" "-ID:\PCL\3rdParty\VTK\include\vtk-7.0" "-I$(PYLON_DEV_DIR)\include" "-I$(NOINHERIT)\."</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Moc%27ing AudioPlayer.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_DLL -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_TESTLIB_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_XMLPATTERNS_LIB -DQT_MULTIMEDIA_LIB -D_UNICODE  "-I.\RobotController" "-I.\RobotController\libs" "-I.\GeneratedFiles" "-I.\widget" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtTest" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtXmlPatterns" "-I$(QTDIR)\include\QtMultimedia" "-ID:\ViSP\include" "-ID:\OpenCV\include" "-ID:\ViSP\thirdparty\zlib\include" "-ID:\ViSP\thirdparty\libjpeg\include" "-ID:\ViSP\thirdparty\libpng\include" "-ID:\PCL\3rdParty\VTK\include" "-ID:\PCL\3rdParty\VTK\include\vtk-7.0" "-I$(PYLON_DEV_DIR)\include" "-I$(NOINHERIT)\."</Command>
+    </CustomBuild>
+    <CustomBuild Include="FrmProcessorScan.h">
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Moc%27ing FrmProcessorScan.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_DLL -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_TESTLIB_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -D_SCL_SECURE_NO_WARNINGS -DQT_SERIALPORT_LIB -DQT_XMLPATTERNS_LIB -DQT_MULTIMEDIA_LIB -D_UNICODE  "-I.\RobotController" "-I.\RobotController\libs" "-I.\GeneratedFiles" "-I.\widget" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtTest" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtXmlPatterns" "-I$(QTDIR)\include\QtMultimedia" "-ID:\PCL\include\pcl-1.8" "-ID:\PCL\3rdParty\Boost\include\boost-1_61" "-ID:\PCL\3rdParty\FLANN\include" "-ID:\PCL\3rdParty\Eigen\eigen3" "-ID:\ViSP\include" "-ID:\OpenCV\include" "-ID:\ViSP\thirdparty\zlib\include" "-ID:\ViSP\thirdparty\libjpeg\include" "-ID:\ViSP\thirdparty\libpng\include" "-ID:\PCL\3rdParty\VTK\include" "-ID:\PCL\3rdParty\VTK\include\vtk-7.0" "-I$(PYLON_DEV_DIR)\include" "-I$(NOINHERIT)\."</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Moc%27ing FrmProcessorScan.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_DLL -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_TESTLIB_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_XMLPATTERNS_LIB -DQT_MULTIMEDIA_LIB -D_UNICODE  "-I.\RobotController" "-I.\RobotController\libs" "-I.\GeneratedFiles" "-I.\widget" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtTest" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtXmlPatterns" "-I$(QTDIR)\include\QtMultimedia" "-ID:\ViSP\include" "-ID:\OpenCV\include" "-ID:\ViSP\thirdparty\zlib\include" "-ID:\ViSP\thirdparty\libjpeg\include" "-ID:\ViSP\thirdparty\libpng\include" "-ID:\PCL\3rdParty\VTK\include" "-ID:\PCL\3rdParty\VTK\include\vtk-7.0" "-I$(PYLON_DEV_DIR)\include" "-I$(NOINHERIT)\."</Command>
+    </CustomBuild>
+    <ClInclude Include="GeneratedFiles\ui_CalibrationDialog.h" />
+    <ClInclude Include="GeneratedFiles\ui_LaserDialog.h" />
+    <ClInclude Include="GeneratedFiles\ui_RobotControllerDialog.h" />
+    <CustomBuild Include="LaserDialog.h">
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Moc%27ing LaserDialog.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_DLL -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_TESTLIB_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -D_SCL_SECURE_NO_WARNINGS -DQT_SERIALPORT_LIB -DQT_XMLPATTERNS_LIB -DQT_MULTIMEDIA_LIB -D_UNICODE  "-I.\RobotController" "-I.\RobotController\libs" "-I.\GeneratedFiles" "-I.\widget" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtTest" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtXmlPatterns" "-I$(QTDIR)\include\QtMultimedia" "-ID:\PCL\include\pcl-1.8" "-ID:\PCL\3rdParty\Boost\include\boost-1_61" "-ID:\PCL\3rdParty\FLANN\include" "-ID:\PCL\3rdParty\Eigen\eigen3" "-ID:\ViSP\include" "-ID:\OpenCV\include" "-ID:\ViSP\thirdparty\zlib\include" "-ID:\ViSP\thirdparty\libjpeg\include" "-ID:\ViSP\thirdparty\libpng\include" "-ID:\PCL\3rdParty\VTK\include" "-ID:\PCL\3rdParty\VTK\include\vtk-7.0" "-I$(PYLON_DEV_DIR)\include" "-I$(NOINHERIT)\."</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Moc%27ing LaserDialog.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_DLL -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_TESTLIB_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_XMLPATTERNS_LIB -DQT_MULTIMEDIA_LIB -D_UNICODE  "-I.\RobotController" "-I.\RobotController\libs" "-I.\GeneratedFiles" "-I.\widget" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtTest" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtXmlPatterns" "-I$(QTDIR)\include\QtMultimedia" "-ID:\ViSP\include" "-ID:\OpenCV\include" "-ID:\ViSP\thirdparty\zlib\include" "-ID:\ViSP\thirdparty\libjpeg\include" "-ID:\ViSP\thirdparty\libpng\include" "-ID:\PCL\3rdParty\VTK\include" "-ID:\PCL\3rdParty\VTK\include\vtk-7.0" "-I$(PYLON_DEV_DIR)\include" "-I$(NOINHERIT)\."</Command>
+    </CustomBuild>
+    <CustomBuild Include="LaserProjectorAndSensor.h">
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Moc%27ing LaserProjectorAndSensor.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_DLL -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_TESTLIB_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -D_SCL_SECURE_NO_WARNINGS -DQT_SERIALPORT_LIB -DQT_XMLPATTERNS_LIB -DQT_MULTIMEDIA_LIB -D_UNICODE  "-I.\RobotController" "-I.\RobotController\libs" "-I.\GeneratedFiles" "-I.\widget" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtTest" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtXmlPatterns" "-I$(QTDIR)\include\QtMultimedia" "-ID:\PCL\include\pcl-1.8" "-ID:\PCL\3rdParty\Boost\include\boost-1_61" "-ID:\PCL\3rdParty\FLANN\include" "-ID:\PCL\3rdParty\Eigen\eigen3" "-ID:\ViSP\include" "-ID:\OpenCV\include" "-ID:\ViSP\thirdparty\zlib\include" "-ID:\ViSP\thirdparty\libjpeg\include" "-ID:\ViSP\thirdparty\libpng\include" "-ID:\PCL\3rdParty\VTK\include" "-ID:\PCL\3rdParty\VTK\include\vtk-7.0" "-I$(PYLON_DEV_DIR)\include" "-I$(NOINHERIT)\."</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Moc%27ing LaserProjectorAndSensor.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_DLL -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_TESTLIB_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_XMLPATTERNS_LIB -DQT_MULTIMEDIA_LIB -D_UNICODE  "-I.\RobotController" "-I.\RobotController\libs" "-I.\GeneratedFiles" "-I.\widget" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtTest" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtXmlPatterns" "-I$(QTDIR)\include\QtMultimedia" "-ID:\ViSP\include" "-ID:\OpenCV\include" "-ID:\ViSP\thirdparty\zlib\include" "-ID:\ViSP\thirdparty\libjpeg\include" "-ID:\ViSP\thirdparty\libpng\include" "-ID:\PCL\3rdParty\VTK\include" "-ID:\PCL\3rdParty\VTK\include\vtk-7.0" "-I$(PYLON_DEV_DIR)\include" "-I$(NOINHERIT)\."</Command>
+    </CustomBuild>
+    <ClInclude Include="Logger.h" />
+    <ClInclude Include="RobotController\libs\RobotState.h" />
+    <ClInclude Include="RobotController\libs\RobotStateRT.h" />
+    <CustomBuild Include="RobotController\libs\UrDashboardCommunication.h">
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Moc%27ing UrDashboardCommunication.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_DLL -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_TESTLIB_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -D_SCL_SECURE_NO_WARNINGS -DQT_SERIALPORT_LIB -DQT_XMLPATTERNS_LIB -DQT_MULTIMEDIA_LIB -D_UNICODE  "-I.\RobotController" "-I.\RobotController\libs" "-I.\GeneratedFiles" "-I.\widget" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtTest" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtXmlPatterns" "-I$(QTDIR)\include\QtMultimedia" "-ID:\PCL\include\pcl-1.8" "-ID:\PCL\3rdParty\Boost\include\boost-1_61" "-ID:\PCL\3rdParty\FLANN\include" "-ID:\PCL\3rdParty\Eigen\eigen3" "-ID:\ViSP\include" "-ID:\OpenCV\include" "-ID:\ViSP\thirdparty\zlib\include" "-ID:\ViSP\thirdparty\libjpeg\include" "-ID:\ViSP\thirdparty\libpng\include" "-ID:\PCL\3rdParty\VTK\include" "-ID:\PCL\3rdParty\VTK\include\vtk-7.0" "-I$(PYLON_DEV_DIR)\include" "-I$(NOINHERIT)\."</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Moc%27ing UrDashboardCommunication.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_DLL -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_TESTLIB_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_XMLPATTERNS_LIB -DQT_MULTIMEDIA_LIB -D_UNICODE  "-I.\RobotController" "-I.\RobotController\libs" "-I.\GeneratedFiles" "-I.\widget" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtTest" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtXmlPatterns" "-I$(QTDIR)\include\QtMultimedia" "-ID:\ViSP\include" "-ID:\OpenCV\include" "-ID:\ViSP\thirdparty\zlib\include" "-ID:\ViSP\thirdparty\libjpeg\include" "-ID:\ViSP\thirdparty\libpng\include" "-ID:\PCL\3rdParty\VTK\include" "-ID:\PCL\3rdParty\VTK\include\vtk-7.0" "-I$(PYLON_DEV_DIR)\include" "-I$(NOINHERIT)\."</Command>
+    </CustomBuild>
+    <CustomBuild Include="RobotController\libs\UrRealtimeCommunication.h">
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Moc%27ing UrRealtimeCommunication.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_DLL -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_TESTLIB_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -D_SCL_SECURE_NO_WARNINGS -DQT_SERIALPORT_LIB -DQT_XMLPATTERNS_LIB -DQT_MULTIMEDIA_LIB -D_UNICODE  "-I.\RobotController" "-I.\RobotController\libs" "-I.\GeneratedFiles" "-I.\widget" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtTest" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtXmlPatterns" "-I$(QTDIR)\include\QtMultimedia" "-ID:\PCL\include\pcl-1.8" "-ID:\PCL\3rdParty\Boost\include\boost-1_61" "-ID:\PCL\3rdParty\FLANN\include" "-ID:\PCL\3rdParty\Eigen\eigen3" "-ID:\ViSP\include" "-ID:\OpenCV\include" "-ID:\ViSP\thirdparty\zlib\include" "-ID:\ViSP\thirdparty\libjpeg\include" "-ID:\ViSP\thirdparty\libpng\include" "-ID:\PCL\3rdParty\VTK\include" "-ID:\PCL\3rdParty\VTK\include\vtk-7.0" "-I$(PYLON_DEV_DIR)\include" "-I$(NOINHERIT)\."</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Moc%27ing UrRealtimeCommunication.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_DLL -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_TESTLIB_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_XMLPATTERNS_LIB -DQT_MULTIMEDIA_LIB -D_UNICODE  "-I.\RobotController" "-I.\RobotController\libs" "-I.\GeneratedFiles" "-I.\widget" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtTest" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtXmlPatterns" "-I$(QTDIR)\include\QtMultimedia" "-ID:\ViSP\include" "-ID:\OpenCV\include" "-ID:\ViSP\thirdparty\zlib\include" "-ID:\ViSP\thirdparty\libjpeg\include" "-ID:\ViSP\thirdparty\libpng\include" "-ID:\PCL\3rdParty\VTK\include" "-ID:\PCL\3rdParty\VTK\include\vtk-7.0" "-I$(PYLON_DEV_DIR)\include" "-I$(NOINHERIT)\."</Command>
+    </CustomBuild>
+    <CustomBuild Include="RobotController\RobotControllerDialog.h">
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Moc%27ing RobotControllerDialog.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_DLL -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_TESTLIB_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -D_SCL_SECURE_NO_WARNINGS -DQT_SERIALPORT_LIB -DQT_XMLPATTERNS_LIB -DQT_MULTIMEDIA_LIB -D_UNICODE  "-I.\RobotController" "-I.\RobotController\libs" "-I.\GeneratedFiles" "-I.\widget" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtTest" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtXmlPatterns" "-I$(QTDIR)\include\QtMultimedia" "-ID:\PCL\include\pcl-1.8" "-ID:\PCL\3rdParty\Boost\include\boost-1_61" "-ID:\PCL\3rdParty\FLANN\include" "-ID:\PCL\3rdParty\Eigen\eigen3" "-ID:\ViSP\include" "-ID:\OpenCV\include" "-ID:\ViSP\thirdparty\zlib\include" "-ID:\ViSP\thirdparty\libjpeg\include" "-ID:\ViSP\thirdparty\libpng\include" "-ID:\PCL\3rdParty\VTK\include" "-ID:\PCL\3rdParty\VTK\include\vtk-7.0" "-I$(PYLON_DEV_DIR)\include" "-I$(NOINHERIT)\."</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Moc%27ing RobotControllerDialog.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_DLL -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_TESTLIB_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_XMLPATTERNS_LIB -DQT_MULTIMEDIA_LIB -D_UNICODE  "-I.\RobotController" "-I.\RobotController\libs" "-I.\GeneratedFiles" "-I.\widget" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtTest" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtXmlPatterns" "-I$(QTDIR)\include\QtMultimedia" "-ID:\ViSP\include" "-ID:\OpenCV\include" "-ID:\ViSP\thirdparty\zlib\include" "-ID:\ViSP\thirdparty\libjpeg\include" "-ID:\ViSP\thirdparty\libpng\include" "-ID:\PCL\3rdParty\VTK\include" "-ID:\PCL\3rdParty\VTK\include\vtk-7.0" "-I$(PYLON_DEV_DIR)\include" "-I$(NOINHERIT)\."</Command>
+    </CustomBuild>
+    <CustomBuild Include="RobotController\RobotController.h">
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Moc%27ing RobotController.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_DLL -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_TESTLIB_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -D_SCL_SECURE_NO_WARNINGS -DQT_SERIALPORT_LIB -DQT_XMLPATTERNS_LIB -DQT_MULTIMEDIA_LIB -D_UNICODE  "-I.\RobotController" "-I.\RobotController\libs" "-I.\GeneratedFiles" "-I.\widget" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtTest" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtXmlPatterns" "-I$(QTDIR)\include\QtMultimedia" "-ID:\PCL\include\pcl-1.8" "-ID:\PCL\3rdParty\Boost\include\boost-1_61" "-ID:\PCL\3rdParty\FLANN\include" "-ID:\PCL\3rdParty\Eigen\eigen3" "-ID:\ViSP\include" "-ID:\OpenCV\include" "-ID:\ViSP\thirdparty\zlib\include" "-ID:\ViSP\thirdparty\libjpeg\include" "-ID:\ViSP\thirdparty\libpng\include" "-ID:\PCL\3rdParty\VTK\include" "-ID:\PCL\3rdParty\VTK\include\vtk-7.0" "-I$(PYLON_DEV_DIR)\include" "-I$(NOINHERIT)\."</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Moc%27ing RobotController.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_DLL -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_TESTLIB_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_XMLPATTERNS_LIB -DQT_MULTIMEDIA_LIB -D_UNICODE  "-I.\RobotController" "-I.\RobotController\libs" "-I.\GeneratedFiles" "-I.\widget" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtTest" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtXmlPatterns" "-I$(QTDIR)\include\QtMultimedia" "-ID:\ViSP\include" "-ID:\OpenCV\include" "-ID:\ViSP\thirdparty\zlib\include" "-ID:\ViSP\thirdparty\libjpeg\include" "-ID:\ViSP\thirdparty\libpng\include" "-ID:\PCL\3rdParty\VTK\include" "-ID:\PCL\3rdParty\VTK\include\vtk-7.0" "-I$(PYLON_DEV_DIR)\include" "-I$(NOINHERIT)\."</Command>
+    </CustomBuild>
+    <CustomBuild Include="RobotController\PathRecorder.h">
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Moc%27ing PathRecorder.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_DLL -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_TESTLIB_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -D_SCL_SECURE_NO_WARNINGS -DQT_SERIALPORT_LIB -DQT_XMLPATTERNS_LIB -DQT_MULTIMEDIA_LIB -D_UNICODE  "-I.\RobotController" "-I.\RobotController\libs" "-I.\GeneratedFiles" "-I.\widget" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtTest" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtXmlPatterns" "-I$(QTDIR)\include\QtMultimedia" "-ID:\PCL\include\pcl-1.8" "-ID:\PCL\3rdParty\Boost\include\boost-1_61" "-ID:\PCL\3rdParty\FLANN\include" "-ID:\PCL\3rdParty\Eigen\eigen3" "-ID:\ViSP\include" "-ID:\OpenCV\include" "-ID:\ViSP\thirdparty\zlib\include" "-ID:\ViSP\thirdparty\libjpeg\include" "-ID:\ViSP\thirdparty\libpng\include" "-ID:\PCL\3rdParty\VTK\include" "-ID:\PCL\3rdParty\VTK\include\vtk-7.0" "-I$(PYLON_DEV_DIR)\include" "-I$(NOINHERIT)\."</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Moc%27ing PathRecorder.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_DLL -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_TESTLIB_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_XMLPATTERNS_LIB -DQT_MULTIMEDIA_LIB -D_UNICODE  "-I.\RobotController" "-I.\RobotController\libs" "-I.\GeneratedFiles" "-I.\widget" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtTest" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtXmlPatterns" "-I$(QTDIR)\include\QtMultimedia" "-ID:\ViSP\include" "-ID:\OpenCV\include" "-ID:\ViSP\thirdparty\zlib\include" "-ID:\ViSP\thirdparty\libjpeg\include" "-ID:\ViSP\thirdparty\libpng\include" "-ID:\PCL\3rdParty\VTK\include" "-ID:\PCL\3rdParty\VTK\include\vtk-7.0" "-I$(PYLON_DEV_DIR)\include" "-I$(NOINHERIT)\."</Command>
+    </CustomBuild>
+    <ClInclude Include="RobotController\RobotCmdExecutor.h" />
+    <ClInclude Include="RobotController\RobotException.h" />
+    <ClInclude Include="RobotController\RobotFrame.h" />
+    <CustomBuild Include="RobotController\RobotPath.h">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </Command>
+    </CustomBuild>
+    <ClInclude Include="RobotController\RobotStateHistory.h" />
+    <ClInclude Include="ScanVisualizer.h" />
+    <ClInclude Include="SystemParameter.h" />
+    <CustomBuild Include="FpsCounter.h">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Moc%27ing FpsCounter.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_DLL -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_TESTLIB_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -D_SCL_SECURE_NO_WARNINGS -DQT_SERIALPORT_LIB -DQT_XMLPATTERNS_LIB -DQT_MULTIMEDIA_LIB -D_UNICODE  "-I.\RobotController" "-I.\RobotController\libs" "-I.\GeneratedFiles" "-I.\widget" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtTest" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtXmlPatterns" "-I$(QTDIR)\include\QtMultimedia" "-ID:\PCL\include\pcl-1.8" "-ID:\PCL\3rdParty\Boost\include\boost-1_61" "-ID:\PCL\3rdParty\FLANN\include" "-ID:\PCL\3rdParty\Eigen\eigen3" "-ID:\ViSP\include" "-ID:\OpenCV\include" "-ID:\ViSP\thirdparty\zlib\include" "-ID:\ViSP\thirdparty\libjpeg\include" "-ID:\ViSP\thirdparty\libpng\include" "-ID:\PCL\3rdParty\VTK\include" "-ID:\PCL\3rdParty\VTK\include\vtk-7.0" "-I$(PYLON_DEV_DIR)\include" "-I$(NOINHERIT)\."</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Moc%27ing FpsCounter.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_DLL -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_TESTLIB_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_XMLPATTERNS_LIB -DQT_MULTIMEDIA_LIB -D_UNICODE  "-I.\RobotController" "-I.\RobotController\libs" "-I.\GeneratedFiles" "-I.\widget" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtTest" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtXmlPatterns" "-I$(QTDIR)\include\QtMultimedia" "-ID:\ViSP\include" "-ID:\OpenCV\include" "-ID:\ViSP\thirdparty\zlib\include" "-ID:\ViSP\thirdparty\libjpeg\include" "-ID:\ViSP\thirdparty\libpng\include" "-ID:\PCL\3rdParty\VTK\include" "-ID:\PCL\3rdParty\VTK\include\vtk-7.0" "-I$(PYLON_DEV_DIR)\include" "-I$(NOINHERIT)\."</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="FrmProcessorDisp.h">
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\moc.exe;%(FullPath);$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Moc%27ing FrmProcessorDisp.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_DLL -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_TESTLIB_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -D_SCL_SECURE_NO_WARNINGS -DQT_SERIALPORT_LIB -DQT_XMLPATTERNS_LIB -DQT_MULTIMEDIA_LIB -D_UNICODE  "-I.\RobotController" "-I.\RobotController\libs" "-I.\GeneratedFiles" "-I.\widget" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtTest" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtXmlPatterns" "-I$(QTDIR)\include\QtMultimedia" "-ID:\PCL\include\pcl-1.8" "-ID:\PCL\3rdParty\Boost\include\boost-1_61" "-ID:\PCL\3rdParty\FLANN\include" "-ID:\PCL\3rdParty\Eigen\eigen3" "-ID:\ViSP\include" "-ID:\OpenCV\include" "-ID:\ViSP\thirdparty\zlib\include" "-ID:\ViSP\thirdparty\libjpeg\include" "-ID:\ViSP\thirdparty\libpng\include" "-ID:\PCL\3rdParty\VTK\include" "-ID:\PCL\3rdParty\VTK\include\vtk-7.0" "-I$(PYLON_DEV_DIR)\include" "-I$(NOINHERIT)\."</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)\bin\moc.exe;%(FullPath);$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Moc%27ing FrmProcessorDisp.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_DLL -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_TESTLIB_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_XMLPATTERNS_LIB -DQT_MULTIMEDIA_LIB -D_UNICODE  "-I.\RobotController" "-I.\RobotController\libs" "-I.\GeneratedFiles" "-I.\widget" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtTest" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtXmlPatterns" "-I$(QTDIR)\include\QtMultimedia" "-ID:\ViSP\include" "-ID:\OpenCV\include" "-ID:\ViSP\thirdparty\zlib\include" "-ID:\ViSP\thirdparty\libjpeg\include" "-ID:\ViSP\thirdparty\libpng\include" "-ID:\PCL\3rdParty\VTK\include" "-ID:\PCL\3rdParty\VTK\include\vtk-7.0" "-I$(PYLON_DEV_DIR)\include" "-I$(NOINHERIT)\."</Command>
+    </CustomBuild>
+    <ClInclude Include="GeneratedFiles\ui_Slurry.h" />
+    <CustomBuild Include="widget\VtkWindow.h">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Moc%27ing VtkWindow.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_DLL -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_TESTLIB_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -D_SCL_SECURE_NO_WARNINGS -DQT_SERIALPORT_LIB -DQT_XMLPATTERNS_LIB -DQT_MULTIMEDIA_LIB -D_UNICODE "-I.\RobotController" "-I.\RobotController\libs" "-I.\GeneratedFiles" "-I.\widget" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtTest" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtXmlPatterns" "-I$(QTDIR)\include\QtMultimedia" "-ID:\VTK7\VTK-7.1.1\Install\include\vtk-7.1" "-ID:\PCL\include\pcl-1.8" "-ID:\PCL\3rdParty\Boost\include\boost-1_61" "-ID:\PCL\3rdParty\FLANN\include" "-ID:\PCL\3rdParty\Eigen\eigen3" "-ID:\ViSP\include" "-ID:\OpenCV\include" "-ID:\ViSP\thirdparty\zlib\include" "-ID:\ViSP\thirdparty\libjpeg\include" "-ID:\ViSP\thirdparty\libpng\include" "-I$(PYLON_DEV_DIR)\include" "-I$(NOINHERIT)\."</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Moc%27ing VtkWindow.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_DLL -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_TESTLIB_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_XMLPATTERNS_LIB -DQT_MULTIMEDIA_LIB -D_UNICODE "-I.\RobotController" "-I.\RobotController\libs" "-I.\GeneratedFiles" "-I.\widget" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtTest" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtXmlPatterns" "-I$(QTDIR)\include\QtMultimedia" "-ID:\PCL\include\pcl-1.8" "-ID:\PCL\3rdParty\Boost\include\boost-1_61" "-ID:\PCL\3rdParty\FLANN\include" "-ID:\PCL\3rdParty\Eigen\eigen3" "-ID:\ViSP\include" "-ID:\OpenCV\include" "-ID:\ViSP\thirdparty\zlib\include" "-ID:\ViSP\thirdparty\libjpeg\include" "-ID:\ViSP\thirdparty\libpng\include" "-ID:\PCL\3rdParty\VTK\include" "-ID:\PCL\3rdParty\VTK\include\vtk-7.0" "-I$(PYLON_DEV_DIR)\include" "-I$(NOINHERIT)\."</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="widget\QConsole.h">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Moc%27ing QConsole.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_DLL -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_TESTLIB_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -D_SCL_SECURE_NO_WARNINGS -DQT_SERIALPORT_LIB -DQT_XMLPATTERNS_LIB -DQT_MULTIMEDIA_LIB -D_UNICODE  "-I.\RobotController" "-I.\RobotController\libs" "-I.\GeneratedFiles" "-I.\widget" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtTest" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtXmlPatterns" "-I$(QTDIR)\include\QtMultimedia" "-ID:\PCL\include\pcl-1.8" "-ID:\PCL\3rdParty\Boost\include\boost-1_61" "-ID:\PCL\3rdParty\FLANN\include" "-ID:\PCL\3rdParty\Eigen\eigen3" "-ID:\ViSP\include" "-ID:\OpenCV\include" "-ID:\ViSP\thirdparty\zlib\include" "-ID:\ViSP\thirdparty\libjpeg\include" "-ID:\ViSP\thirdparty\libpng\include" "-ID:\PCL\3rdParty\VTK\include" "-ID:\PCL\3rdParty\VTK\include\vtk-7.0" "-I$(PYLON_DEV_DIR)\include" "-I$(NOINHERIT)\."</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Moc%27ing QConsole.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_DLL -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_TESTLIB_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_XMLPATTERNS_LIB -DQT_MULTIMEDIA_LIB -D_UNICODE  "-I.\RobotController" "-I.\RobotController\libs" "-I.\GeneratedFiles" "-I.\widget" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtTest" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtXmlPatterns" "-I$(QTDIR)\include\QtMultimedia" "-ID:\ViSP\include" "-ID:\OpenCV\include" "-ID:\ViSP\thirdparty\zlib\include" "-ID:\ViSP\thirdparty\libjpeg\include" "-ID:\ViSP\thirdparty\libpng\include" "-ID:\PCL\3rdParty\VTK\include" "-ID:\PCL\3rdParty\VTK\include\vtk-7.0" "-I$(PYLON_DEV_DIR)\include" "-I$(NOINHERIT)\."</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="widget\Viewer2DGL.h">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Moc%27ing Viewer2DGL.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_DLL -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_TESTLIB_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -D_SCL_SECURE_NO_WARNINGS -DQT_SERIALPORT_LIB -DQT_XMLPATTERNS_LIB -DQT_MULTIMEDIA_LIB -D_UNICODE  "-I.\RobotController" "-I.\RobotController\libs" "-I.\GeneratedFiles" "-I.\widget" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtTest" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtXmlPatterns" "-I$(QTDIR)\include\QtMultimedia" "-ID:\PCL\include\pcl-1.8" "-ID:\PCL\3rdParty\Boost\include\boost-1_61" "-ID:\PCL\3rdParty\FLANN\include" "-ID:\PCL\3rdParty\Eigen\eigen3" "-ID:\ViSP\include" "-ID:\OpenCV\include" "-ID:\ViSP\thirdparty\zlib\include" "-ID:\ViSP\thirdparty\libjpeg\include" "-ID:\ViSP\thirdparty\libpng\include" "-ID:\PCL\3rdParty\VTK\include" "-ID:\PCL\3rdParty\VTK\include\vtk-7.0" "-I$(PYLON_DEV_DIR)\include" "-I$(NOINHERIT)\."</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Moc%27ing Viewer2DGL.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_DLL -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_TESTLIB_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_XMLPATTERNS_LIB -DQT_MULTIMEDIA_LIB -D_UNICODE  "-I.\RobotController" "-I.\RobotController\libs" "-I.\GeneratedFiles" "-I.\widget" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtTest" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtXmlPatterns" "-I$(QTDIR)\include\QtMultimedia" "-ID:\ViSP\include" "-ID:\OpenCV\include" "-ID:\ViSP\thirdparty\zlib\include" "-ID:\ViSP\thirdparty\libjpeg\include" "-ID:\ViSP\thirdparty\libpng\include" "-ID:\PCL\3rdParty\VTK\include" "-ID:\PCL\3rdParty\VTK\include\vtk-7.0" "-I$(PYLON_DEV_DIR)\include" "-I$(NOINHERIT)\."</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+    </CustomBuild>
+    <CustomBuild Include="widget\Viewer2D.h">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Moc%27ing Viewer2D.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_DLL -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_TESTLIB_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -D_SCL_SECURE_NO_WARNINGS -DQT_SERIALPORT_LIB -DQT_XMLPATTERNS_LIB -DQT_MULTIMEDIA_LIB -D_UNICODE  "-I.\RobotController" "-I.\RobotController\libs" "-I.\GeneratedFiles" "-I.\widget" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtTest" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtXmlPatterns" "-I$(QTDIR)\include\QtMultimedia" "-ID:\PCL\include\pcl-1.8" "-ID:\PCL\3rdParty\Boost\include\boost-1_61" "-ID:\PCL\3rdParty\FLANN\include" "-ID:\PCL\3rdParty\Eigen\eigen3" "-ID:\ViSP\include" "-ID:\OpenCV\include" "-ID:\ViSP\thirdparty\zlib\include" "-ID:\ViSP\thirdparty\libjpeg\include" "-ID:\ViSP\thirdparty\libpng\include" "-ID:\PCL\3rdParty\VTK\include" "-ID:\PCL\3rdParty\VTK\include\vtk-7.0" "-I$(PYLON_DEV_DIR)\include" "-I$(NOINHERIT)\."</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Moc%27ing Viewer2D.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_DLL -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_TESTLIB_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_XMLPATTERNS_LIB -DQT_MULTIMEDIA_LIB -D_UNICODE  "-I.\RobotController" "-I.\RobotController\libs" "-I.\GeneratedFiles" "-I.\widget" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtTest" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtXmlPatterns" "-I$(QTDIR)\include\QtMultimedia" "-ID:\ViSP\include" "-ID:\OpenCV\include" "-ID:\ViSP\thirdparty\zlib\include" "-ID:\ViSP\thirdparty\libjpeg\include" "-ID:\ViSP\thirdparty\libpng\include" "-ID:\PCL\3rdParty\VTK\include" "-ID:\PCL\3rdParty\VTK\include\vtk-7.0" "-I$(PYLON_DEV_DIR)\include" "-I$(NOINHERIT)\."</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="GeneratedFiles\Debug\UrRealtimeCommunication.moc" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="LaserDialog.ui">
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Uic%27ing %(Identity)...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Uic%27ing %(Identity)...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
+      <SubType>Designer</SubType>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="ToolCalibrationDialog.ui">
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Uic%27ing %(Identity)...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Uic%27ing %(Identity)...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
+      <SubType>Designer</SubType>
+    </CustomBuild>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties MocDir=".\GeneratedFiles\$(ConfigurationName)" UicDir=".\GeneratedFiles" RccDir=".\GeneratedFiles" lupdateOptions="" lupdateOnBuild="0" lreleaseOptions="" Qt5Version_x0020_x64="Qt5.9" MocOptions="" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

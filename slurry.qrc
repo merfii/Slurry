@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/Slurry">
+        <file>Slurry.ico</file>
+    </qresource>
+</RCC>

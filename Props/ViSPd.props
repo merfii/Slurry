@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\ViSP\include;D:\OpenCV\include;D:\ViSP\thirdparty\zlib\include;D:\ViSP\thirdparty\libjpeg\include;D:\ViSP\thirdparty\libpng\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>D:\ViSP\x64\vc12\lib;D:\ViSP\thirdparty\libjpeg\lib;D:\ViSP\thirdparty\libpng\lib;D:\OpenCV\x64\vc12\lib;D:\ViSP\thirdparty\zlib\lib;
+%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>visp_vs301d.lib;visp_tt_mi301d.lib;visp_tt301d.lib;visp_mbt301d.lib;visp_klt301d.lib;visp_robot301d.lib;visp_gui301d.lib;visp_detection301d.lib;visp_ar301d.lib;visp_sensor301d.lib;visp_vision301d.lib;visp_visual_features301d.lib;visp_me301d.lib;visp_blob301d.lib;visp_io301d.lib;jpeg.lib;libpng16_static.lib;visp_core301d.lib;opencv_world310d.lib;zlibstatic.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup />
+</Project>

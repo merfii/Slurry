@@ -1,0 +1,44 @@
+%YAML:1.0
+calibration_time: "06/29/18 00:51:35"
+nr_of_frames: 0
+image_width: 2592
+image_height: 2048
+board_width: 11
+board_height: 8
+square_size: 0
+flags: 0
+camera_matrix: !!opencv-matrix
+   rows: 3
+   cols: 3
+   dt: d
+   data: [ 1.7691434384508202e+003, 0., 1.2955000000000000e+003, 0.,
+       1.7691434384508202e+003, 1.0235000000000000e+003, 0., 0., 1. ]
+distortion_coefficients: !!opencv-matrix
+   rows: 5
+   cols: 1
+   dt: d
+   data: [ -9.0720684978813318e-002, 5.4093538928802511e-002, 0., 0.,
+       3.0400227784364481e-001 ]
+avg_reprojection_error: 4.2774479562852197e-001
+per_view_reprojection_errors: !!opencv-matrix
+   rows: 1
+   cols: 1
+   dt: f
+   data: [ -1. ]
+# Rotation vector + Translation vector for each view
+laser_plane: !!opencv-matrix
+   rows: 1
+   cols: 4
+   dt: d
+   data: [ 1.1942386047058146e-001, -5.7121093540443688e+000,
+       -2.4954182895099675e+000, 1. ]
+hand2eye: [ -4.1018939180471128e-003, 9.3404108344432568e-001,
+    3.5714202903667802e-001, -1.5618540916749038e-001,
+    -9.9986066142027330e-001, 1.9482265764580731e-003,
+    -1.6578967320690835e-002, 2.8011863301515682e-003,
+    -1.6181230191145590e-002, -3.5716027053881161e-001,
+    9.3390294406760699e-001, 1.0750020163895227e-001 ]
+rvecs:
+   []
+tvecs:
+   []

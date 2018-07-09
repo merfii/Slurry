@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- 对应xml配置文件 -->
+<Settings>
+<CameraControl>
+	<!-- &lt;小于 &gt;大于 &amp;且 &quot;引号 &apos -->
+
+	<comment>其他信息</comment>
+	<ID>
+		<GrayA>21883116</GrayA>
+		<ColorA>21904290</ColorA>
+		<ColorB>21904291</ColorB>
+	</ID>
+	<ExposureTime>50000</ExposureTime>
+	<Height>1000</Height>
+	<OffsetY>700</OffsetY>
+
+	<!-- 实际帧率等于以下数字的两倍 -->	
+	<FlickerSlowFreq>3</FlickerSlowFreq>
+	<FlickerFastFreq>8</FlickerFastFreq>
+	<!-- 奇偶帧之间的间隔 单位是0.4ms -->
+	<FlickerIntervalSlow>250</FlickerIntervalSlow>
+	<FlickerIntervalFast>130</FlickerIntervalFast>
+</CameraControl>
+
+<Hardware>
+	<RobotIp>192.168.10.2</RobotIp>
+	<COM>COM16</COM>
+</Hardware>
+
+<Robot>
+	<BlendRadius>0.01</BlendRadius>
+	<MoveTolerance>0.005</MoveTolerance>
+</Robot>
+
+
+</Settings>

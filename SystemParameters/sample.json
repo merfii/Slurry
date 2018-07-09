@@ -1,0 +1,15 @@
+{
+	"CameraControl":
+	{
+		"comment":["这个是注释"],
+		"ID":
+		{
+			"GrayA":"21880724",
+			"GrayB":"21883116",
+			"ColorA":"21747271",
+			"ColorB":"21883112"
+		},
+		"ExposureTime":80000
+
+	}
+}

@@ -1,0 +1,1381 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SlurryClass</class>
+ <widget class="QMainWindow" name="SlurryClass">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>819</width>
+    <height>683</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>医学导引系统</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QMenuBar" name="menuBar">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <widget class="QMenu" name="menu_file">
+       <property name="title">
+        <string>文件</string>
+       </property>
+       <addaction name="action_2"/>
+       <addaction name="action_3"/>
+       <addaction name="separator"/>
+       <addaction name="action_exit"/>
+      </widget>
+      <widget class="QMenu" name="menu_control">
+       <property name="title">
+        <string>系统控制</string>
+       </property>
+       <addaction name="CameraOpen"/>
+       <addaction name="CameraDisp"/>
+       <addaction name="action_robotControl"/>
+       <addaction name="action_laser"/>
+       <addaction name="action_9"/>
+       <addaction name="separator"/>
+      </widget>
+      <widget class="QMenu" name="menu_CT">
+       <property name="title">
+        <string>CT影像控制</string>
+       </property>
+       <addaction name="separator"/>
+       <addaction name="action_17"/>
+      </widget>
+      <widget class="QMenu" name="menu_calib">
+       <property name="title">
+        <string>标定</string>
+       </property>
+       <addaction name="CameraCalib"/>
+       <addaction name="toolCalib"/>
+      </widget>
+      <widget class="QMenu" name="menu_help">
+       <property name="title">
+        <string>帮助</string>
+       </property>
+       <addaction name="action_about"/>
+       <addaction name="action_aboutQt"/>
+       <addaction name="actionTest1"/>
+       <addaction name="actionTest2"/>
+      </widget>
+      <addaction name="menu_file"/>
+      <addaction name="menu_control"/>
+      <addaction name="menu_CT"/>
+      <addaction name="menu_calib"/>
+      <addaction name="menu_help"/>
+     </widget>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout_3">
+      <property name="spacing">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="QTabWidget" name="tabWidget">
+        <property name="currentIndex">
+         <number>0</number>
+        </property>
+        <widget class="QWidget" name="tabScan">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <attribute name="title">
+          <string>扫描影像</string>
+         </attribute>
+         <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,0">
+          <property name="spacing">
+           <number>2</number>
+          </property>
+          <property name="leftMargin">
+           <number>2</number>
+          </property>
+          <property name="topMargin">
+           <number>2</number>
+          </property>
+          <property name="rightMargin">
+           <number>2</number>
+          </property>
+          <property name="bottomMargin">
+           <number>2</number>
+          </property>
+          <item>
+           <widget class="VtkWindow" name="vtkWindow" native="true"/>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_6">
+            <item>
+             <layout class="QGridLayout" name="gridLayout_3">
+              <item row="2" column="0">
+               <widget class="QPushButton" name="buttonTeach">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>40</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>拖动示教</string>
+                </property>
+                <property name="checkable">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QPilot" name="pilotMatch" native="true">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>100</height>
+                 </size>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="0">
+               <widget class="QPilot" name="pilotRobot" native="true">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>100</height>
+                 </size>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="0">
+               <widget class="QPushButton" name="buttonSaveData">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>40</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>保存点云数据</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="0">
+               <widget class="QPushButton" name="buttonScan">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>40</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>开始扫描</string>
+                </property>
+                <property name="checkable">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0" colspan="2">
+               <widget class="QPushButton" name="buttonStop">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>40</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Adobe Arabic</family>
+                  <pointsize>12</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>停  止</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="1">
+               <widget class="QPushButton" name="buttonClear">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>40</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>清除结果</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QPushButton" name="buttonTeachPlay">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>40</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>示教路径测试</string>
+                </property>
+                <property name="checkable">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="1">
+               <widget class="QPushButton" name="buttonLoadData">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>40</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>装载点云数据</string>
+                </property>
+               </widget>
+              </item>
+              <item row="7" column="1">
+               <widget class="QPushButton" name="buttonToolGo">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>40</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>进入导引位</string>
+                </property>
+               </widget>
+              </item>
+              <item row="7" column="0">
+               <widget class="QPushButton" name="buttonToolWidget">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>40</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>显示进针目标手柄</string>
+                </property>
+                <property name="checkable">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="0">
+               <widget class="QPushButton" name="buttonToolMove5mmF">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>40</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>进针1cm</string>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="1">
+               <widget class="QPushButton" name="buttonToolMove5mmB">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>40</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>退针1cm</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <widget class="QConsole" name="logTextScan">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                <horstretch>0</horstretch>
+                <verstretch>1</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>100</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="tabCT">
+         <attribute name="title">
+          <string>CT影像</string>
+         </attribute>
+         <layout class="QHBoxLayout" name="horizontalLayout_6" stretch="6,1">
+          <item>
+           <widget class="VtkWindow" name="ctWindow" native="true"/>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_4" stretch="0,0,0,0,0,0,0,1">
+            <property name="spacing">
+             <number>5</number>
+            </property>
+            <item>
+             <widget class="QGroupBox" name="groupBox">
+              <property name="title">
+               <string>三维显示方式</string>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_5">
+               <item>
+                <widget class="QRadioButton" name="radioButtonVolume">
+                 <property name="font">
+                  <font>
+                   <family>宋体</family>
+                   <pointsize>10</pointsize>
+                   <weight>50</weight>
+                   <bold>false</bold>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>密度切面</string>
+                 </property>
+                 <property name="checked">
+                  <bool>true</bool>
+                 </property>
+                 <attribute name="buttonGroup">
+                  <string notr="true">viewButtonGroup</string>
+                 </attribute>
+                </widget>
+               </item>
+               <item>
+                <widget class="QRadioButton" name="radioButtonSurface">
+                 <property name="font">
+                  <font>
+                   <family>宋体</family>
+                   <pointsize>10</pointsize>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>等值面</string>
+                 </property>
+                 <attribute name="buttonGroup">
+                  <string notr="true">viewButtonGroup</string>
+                 </attribute>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <widget class="QGroupBox" name="groupBox_2">
+              <property name="title">
+               <string>切面选择</string>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_7">
+               <item>
+                <widget class="QRadioButton" name="radioButtonSagittal">
+                 <property name="font">
+                  <font>
+                   <family>宋体</family>
+                   <pointsize>10</pointsize>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>Sagittal矢状面</string>
+                 </property>
+                 <attribute name="buttonGroup">
+                  <string notr="true">planeButtonGroup</string>
+                 </attribute>
+                </widget>
+               </item>
+               <item>
+                <widget class="QRadioButton" name="radioButtonCoronal">
+                 <property name="font">
+                  <font>
+                   <family>宋体</family>
+                   <pointsize>10</pointsize>
+                   <weight>50</weight>
+                   <bold>false</bold>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>Coronal冠状面</string>
+                 </property>
+                 <property name="checked">
+                  <bool>true</bool>
+                 </property>
+                 <attribute name="buttonGroup">
+                  <string notr="true">planeButtonGroup</string>
+                 </attribute>
+                </widget>
+               </item>
+               <item>
+                <widget class="QRadioButton" name="radioButtonAxial">
+                 <property name="font">
+                  <font>
+                   <family>宋体</family>
+                   <pointsize>10</pointsize>
+                   <weight>50</weight>
+                   <bold>false</bold>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>Axial横断面</string>
+                 </property>
+                 <attribute name="buttonGroup">
+                  <string notr="true">planeButtonGroup</string>
+                 </attribute>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="buttonLoadCT">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>40</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>装载影像</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="buttonRegistration">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>40</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>开始配准</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="buttonSaveCT">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>40</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>保存表面结果</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="buttonToolWidget2">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>40</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>显示进针目标手柄</string>
+              </property>
+              <property name="checkable">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="buttonOpenDicom">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>40</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>打开DICOM</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEdit">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>100</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="tabControl">
+         <attribute name="title">
+          <string>相机画面</string>
+         </attribute>
+         <layout class="QHBoxLayout" name="horizontalLayout_4" stretch="0,0">
+          <item>
+           <widget class="QScrollArea" name="scrollArea">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+              <horstretch>1</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>400</width>
+              <height>400</height>
+             </size>
+            </property>
+            <property name="widgetResizable">
+             <bool>true</bool>
+            </property>
+            <widget class="QWidget" name="scrollAreaWidgetContents">
+             <property name="geometry">
+              <rect>
+               <x>0</x>
+               <y>0</y>
+               <width>398</width>
+               <height>398</height>
+              </rect>
+             </property>
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_2">
+              <item>
+               <widget class="Viewer2D" name="viewer1" native="true"/>
+              </item>
+              <item>
+               <widget class="Viewer2D" name="viewer2" native="true"/>
+              </item>
+             </layout>
+            </widget>
+           </widget>
+          </item>
+          <item>
+           <widget class="QWidget" name="sidebar" native="true">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>300</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout">
+             <item>
+              <widget class="QStackedWidget" name="stackedWidget">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="currentIndex">
+                <number>0</number>
+               </property>
+               <widget class="QWidget" name="page_1">
+                <layout class="QGridLayout" name="gridLayout_buttons">
+                 <property name="leftMargin">
+                  <number>2</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>2</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>2</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>2</number>
+                 </property>
+                 <property name="horizontalSpacing">
+                  <number>5</number>
+                 </property>
+                 <property name="verticalSpacing">
+                  <number>6</number>
+                 </property>
+                 <item row="0" column="1">
+                  <widget class="QPushButton" name="buttonScan1">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="minimumSize">
+                    <size>
+                     <width>90</width>
+                     <height>35</height>
+                    </size>
+                   </property>
+                   <property name="text">
+                    <string>开始扫描</string>
+                   </property>
+                   <property name="checkable">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="2">
+                  <widget class="QComboBox" name="calibSelect">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>35</height>
+                    </size>
+                   </property>
+                   <property name="sizeAdjustPolicy">
+                    <enum>QComboBox::AdjustToContents</enum>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+               <widget class="QWidget" name="page_2">
+                <layout class="QGridLayout" name="gridLayout_2">
+                 <item row="0" column="0">
+                  <widget class="QPushButton" name="pushButton">
+                   <property name="text">
+                    <string>PushButton</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </widget>
+             </item>
+             <item>
+              <widget class="QConsole" name="logText">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                 <horstretch>0</horstretch>
+                 <verstretch>1</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>280</width>
+                 <height>120</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <layout class="QFormLayout" name="formLayout">
+               <property name="fieldGrowthPolicy">
+                <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+               </property>
+               <property name="verticalSpacing">
+                <number>0</number>
+               </property>
+               <item row="2" column="0">
+                <widget class="QLabel" name="lcdLabel">
+                 <property name="font">
+                  <font>
+                   <family>Andalus</family>
+                   <pointsize>12</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>当前测量距离</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1">
+                <widget class="QLCDNumber" name="lcdDist">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>80</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QStatusBar" name="statusBar">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <action name="action_2">
+   <property name="text">
+    <string>打开</string>
+   </property>
+  </action>
+  <action name="action_3">
+   <property name="text">
+    <string>保存</string>
+   </property>
+  </action>
+  <action name="action_exit">
+   <property name="text">
+    <string>退出</string>
+   </property>
+  </action>
+  <action name="action_6">
+   <property name="text">
+    <string>单帧采集</string>
+   </property>
+  </action>
+  <action name="action_7">
+   <property name="text">
+    <string>连续采集</string>
+   </property>
+  </action>
+  <action name="action_9">
+   <property name="text">
+    <string>状态显示</string>
+   </property>
+  </action>
+  <action name="action_11">
+   <property name="text">
+    <string>打开串口</string>
+   </property>
+  </action>
+  <action name="action_12">
+   <property name="text">
+    <string>关闭串口</string>
+   </property>
+  </action>
+  <action name="action_laser">
+   <property name="text">
+    <string>激光控制</string>
+   </property>
+  </action>
+  <action name="action_13">
+   <property name="text">
+    <string>搜索相机</string>
+   </property>
+  </action>
+  <action name="action_14">
+   <property name="text">
+    <string>连接控制器</string>
+   </property>
+  </action>
+  <action name="action_robotControl">
+   <property name="text">
+    <string>机械臂控制</string>
+   </property>
+  </action>
+  <action name="action_17">
+   <property name="text">
+    <string>载入CT图像</string>
+   </property>
+  </action>
+  <action name="CameraCalib">
+   <property name="text">
+    <string>相机标定</string>
+   </property>
+  </action>
+  <action name="action_about">
+   <property name="text">
+    <string>关于</string>
+   </property>
+  </action>
+  <action name="action_aboutQt">
+   <property name="text">
+    <string>关于Qt</string>
+   </property>
+  </action>
+  <action name="CameraExtrinsic">
+   <property name="text">
+    <string>外参数</string>
+   </property>
+  </action>
+  <action name="CameraOpen">
+   <property name="text">
+    <string>枚举相机</string>
+   </property>
+  </action>
+  <action name="CameraDisp">
+   <property name="text">
+    <string>连续显示</string>
+   </property>
+  </action>
+  <action name="toolCalib">
+   <property name="text">
+    <string>导引筒标定</string>
+   </property>
+  </action>
+  <action name="actionTest1">
+   <property name="text">
+    <string>Test1</string>
+   </property>
+  </action>
+  <action name="actionTest2">
+   <property name="text">
+    <string>Test2</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>QConsole</class>
+   <extends>QTextEdit</extends>
+   <header>widget/QConsole.h</header>
+  </customwidget>
+  <customwidget>
+   <class>VtkWindow</class>
+   <extends>QWidget</extends>
+   <header>widget/VtkWindow.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>Viewer2D</class>
+   <extends>QWidget</extends>
+   <header>widget/Viewer2D.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>QPilot</class>
+   <extends>QWidget</extends>
+   <header>widget/QPilot.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="slurry.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>action_aboutQt</sender>
+   <signal>triggered()</signal>
+   <receiver>SlurryClass</receiver>
+   <slot>aboutQt()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>597</x>
+     <y>366</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>action_about</sender>
+   <signal>triggered()</signal>
+   <receiver>SlurryClass</receiver>
+   <slot>about()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>597</x>
+     <y>366</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>CameraCalib</sender>
+   <signal>triggered()</signal>
+   <receiver>SlurryClass</receiver>
+   <slot>openCalibDialog()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>407</x>
+     <y>311</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>action_exit</sender>
+   <signal>triggered()</signal>
+   <receiver>SlurryClass</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>407</x>
+     <y>311</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonTeach</sender>
+   <signal>clicked()</signal>
+   <receiver>SlurryClass</receiver>
+   <slot>scanTeach()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>808</x>
+     <y>237</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>407</x>
+     <y>311</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonTeachPlay</sender>
+   <signal>clicked()</signal>
+   <receiver>SlurryClass</receiver>
+   <slot>scanTeachTest()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>938</x>
+     <y>237</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>407</x>
+     <y>311</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>CameraOpen</sender>
+   <signal>triggered()</signal>
+   <receiver>SlurryClass</receiver>
+   <slot>cameraInit()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>407</x>
+     <y>311</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>CameraDisp</sender>
+   <signal>triggered()</signal>
+   <receiver>SlurryClass</receiver>
+   <slot>cameraDisplay()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>407</x>
+     <y>311</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>action_robotControl</sender>
+   <signal>triggered()</signal>
+   <receiver>SlurryClass</receiver>
+   <slot>openRobotControlDialog()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>398</x>
+     <y>306</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>action_laser</sender>
+   <signal>triggered()</signal>
+   <receiver>SlurryClass</receiver>
+   <slot>openLaserDialog()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>406</x>
+     <y>284</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionTest2</sender>
+   <signal>triggered()</signal>
+   <receiver>SlurryClass</receiver>
+   <slot>test2()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>406</x>
+     <y>275</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionTest1</sender>
+   <signal>triggered()</signal>
+   <receiver>SlurryClass</receiver>
+   <slot>test1()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>555</x>
+     <y>322</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonLoadCT</sender>
+   <signal>clicked()</signal>
+   <receiver>SlurryClass</receiver>
+   <slot>ctLoadImage3D()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>925</x>
+     <y>268</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>504</x>
+     <y>341</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>toolCalib</sender>
+   <signal>triggered()</signal>
+   <receiver>SlurryClass</receiver>
+   <slot>openToolDialog()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>504</x>
+     <y>341</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonOpenDicom</sender>
+   <signal>clicked()</signal>
+   <receiver>SlurryClass</receiver>
+   <slot>ctLoadDICOM()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>925</x>
+     <y>268</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>504</x>
+     <y>341</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonSaveCT</sender>
+   <signal>clicked()</signal>
+   <receiver>SlurryClass</receiver>
+   <slot>ctSaveImage3D()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>925</x>
+     <y>358</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>504</x>
+     <y>341</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonRegistration</sender>
+   <signal>clicked()</signal>
+   <receiver>SlurryClass</receiver>
+   <slot>ctRegistration()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>925</x>
+     <y>403</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>504</x>
+     <y>341</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonToolWidget2</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>buttonToolWidget</receiver>
+   <slot>toggle()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>925</x>
+     <y>448</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>617</x>
+     <y>421</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonToolGo</sender>
+   <signal>clicked()</signal>
+   <receiver>SlurryClass</receiver>
+   <slot>toolIntoPosition()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>808</x>
+     <y>329</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>504</x>
+     <y>341</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonToolMove5mmF</sender>
+   <signal>clicked()</signal>
+   <receiver>SlurryClass</receiver>
+   <slot>toolMoveForward1cm()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>938</x>
+     <y>329</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>504</x>
+     <y>341</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonToolWidget</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>SlurryClass</receiver>
+   <slot>toolDispWidget(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>748</x>
+     <y>283</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>409</x>
+     <y>341</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonStop</sender>
+   <signal>clicked()</signal>
+   <receiver>SlurryClass</receiver>
+   <slot>stop()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>682</x>
+     <y>191</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>409</x>
+     <y>341</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonSaveData</sender>
+   <signal>clicked()</signal>
+   <receiver>SlurryClass</receiver>
+   <slot>scanSaveData()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>617</x>
+     <y>329</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>409</x>
+     <y>341</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonLoadData</sender>
+   <signal>clicked()</signal>
+   <receiver>SlurryClass</receiver>
+   <slot>scanLoadData()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>747</x>
+     <y>329</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>409</x>
+     <y>341</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonScan</sender>
+   <signal>clicked()</signal>
+   <receiver>SlurryClass</receiver>
+   <slot>scanStart()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>617</x>
+     <y>283</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>409</x>
+     <y>341</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonClear</sender>
+   <signal>clicked()</signal>
+   <receiver>SlurryClass</receiver>
+   <slot>scanClear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>747</x>
+     <y>283</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>409</x>
+     <y>341</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radioButtonSurface</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>SlurryClass</receiver>
+   <slot>ctShowSkin(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>734</x>
+     <y>125</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>409</x>
+     <y>341</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonToolMove5mmB</sender>
+   <signal>clicked()</signal>
+   <receiver>SlurryClass</receiver>
+   <slot>toolMoveBackward1cm()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>747</x>
+     <y>375</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>409</x>
+     <y>341</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <buttongroups>
+  <buttongroup name="viewButtonGroup"/>
+  <buttongroup name="planeButtonGroup"/>
+ </buttongroups>
+</ui>
