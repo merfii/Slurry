@@ -45,9 +45,6 @@
     <Filter Include="Header Files\widget">
       <UniqueIdentifier>{81381830-4a75-4c8a-84d5-40b6c86b01bc}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\CodeReference">
-      <UniqueIdentifier>{3804a2f9-c736-4b37-880b-18312f837ef4}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GeneratedFiles\qrc_slurry.cpp">
@@ -302,13 +299,10 @@
     <ClCompile Include="vtkGuiderWidget.cpp">
       <Filter>Source Files\widget</Filter>
     </ClCompile>
-    <ClCompile Include="PCL_implements.cpp">
-      <Filter>Source Files\CodeReference</Filter>
+    <ClCompile Include="ScanVisualizer.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="TestPointsGenerator.cpp">
-      <Filter>Source Files\CodeReference</Filter>
-    </ClCompile>
-    <ClCompile Include="ScanVisualizer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -409,11 +403,11 @@
     <CustomBuild Include="vtkRobotModel.h">
       <Filter>Header Files\widget</Filter>
     </CustomBuild>
-    <CustomBuild Include="TestPointsGenerator.h">
-      <Filter>Source Files\CodeReference</Filter>
-    </CustomBuild>
     <CustomBuild Include="slurry.qrc">
       <Filter>Resource Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="TestPointsGenerator.h">
+      <Filter>Header Files</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>

@@ -1,4 +1,11 @@
 #pragma execution_character_set("utf-8")
+#include <QMutex>
+#include <QMutexLocker>
+#include <QFileDialog>
+
+#include <pcl/io/pcd_io.h>
+#include <pcl/io/ply_io.h>
+
 #include "GlobalShared.h"
 #include "Logger.h"
 #include "SystemParameter.h"
@@ -13,6 +20,8 @@
 #include "LaserProjectorAndSensor.h"
 
 #include "Slurry.h"
+
+#define MAX_POINTS_PER_SLICE 100
 
 void Slurry::scanTeach()
 {
@@ -70,6 +79,7 @@ void Slurry::scanStart()
 	{
 		ui.buttonScan->setText("结束扫描");
 		std::shared_ptr<FrmProcessorScan> processorScan = std::make_shared<FrmProcessorScan>();
+
 		connect(processorScan.get(), SIGNAL(DispInMainWindowA(cv::Mat)), GlobalShared::slurry->ui.viewer1, SLOT(setImage(const cv::Mat)), Qt::DirectConnection);
 		connect(processorScan.get(), SIGNAL(DispInMainWindowB(cv::Mat)), GlobalShared::slurry->ui.viewer2, SLOT(setImage(const cv::Mat)), Qt::DirectConnection);
 
@@ -104,15 +114,62 @@ void Slurry::scanStart()
 	}
 }
 
+void Slurry::scanShotFrame(pcl::PointCloud<pcl::PointXYZRGB>::Ptr slicePoints)
+{
+	pointCloudMutex->lock();
+		*rawPointCloud += *slicePoints;
+	pointCloudMutex->unlock();
+
+
+	//slicePoints内部数据用于三角重建  计算量较大，有必要先进行降采样
+	//对数据进行降采样
+	float idxA = 0, idxB = 0;
+	float deltaB = (float)MAX_POINTS_PER_SLICE / slicePoints->size();
+	pcl::PointCloud<pcl::PointXYZRGB>::Ptr downSlice(new pcl::PointCloud<pcl::PointXYZRGB>); 
+
+	for (auto it = slicePoints->begin(); it != slicePoints->end(); it++)
+	{
+		idxB += deltaB;
+		if (idxA >= idxB){
+			continue;
+		}
+		downSlice->push_back(*it);
+		idxA++;
+	}
+
+	pointCloudMutex->lock();
+		slicePointCloud.push_back(downSlice);
+	pointCloudMutex->unlock();
+	
+	scanVisualizer->ScanTaskDispPoints(slicePoints);
+	int Nold = slicePointCloud.size();
+	if (Nold >= 2){
+		scanVisualizer->ScanTaskDispSurface(slicePointCloud[Nold - 2], slicePointCloud[Nold - 1]);
+	}
+}
+
+
 void Slurry::scanClear()
 {
+	pointCloudMutex->lock();
+	rawPointCloud = pcl::PointCloud<pcl::PointXYZRGB>::Ptr(new pcl::PointCloud<pcl::PointXYZRGB>);
+	slicePointCloud.clear();
+	//downSamplePointCloud = pcl::PointCloud<pcl::PointXYZRGB>::Ptr(new pcl::PointCloud<pcl::PointXYZRGB>);
+	pointCloudMutex->unlock();
+
 	scanVisualizer->ScanTaskClear();
 }
 
 
 void Slurry::scanSaveData()
 {
-	scanVisualizer->ScanSaveData();
+	pointCloudMutex->lock();
+
+	pcl::io::savePCDFileASCII("PointCloudDataAscii.pcd",*rawPointCloud);
+	pcl::io::savePCDFileASCII("PointCloudDataBin.pcd", *rawPointCloud);
+	pcl::io::savePLYFileASCII("PointCloudDataAscii.ply", *rawPointCloud);
+	
+	pointCloudMutex->unlock();
 	/*
 	保存debug点云数据
 	laserPoints3D.release();
@@ -120,14 +177,25 @@ void Slurry::scanSaveData()
 	fs["Points"] >> laserPoints3D;
 	fs.release();
 	*/
-
 }
 
 
 void Slurry::scanLoadData()
 {
-	scanVisualizer->ScanLoadData(this);
+	scanClear();
+	//对话框
+	QString path = QFileDialog::getOpenFileName(this, "打开文件", QString(), "*.pcd");
+	if (path.isEmpty())
+		return;
 
+	QMutexLocker locker(pointCloudMutex);
+	if (pcl::io::loadPCDFile(path.toStdString(), *rawPointCloud))
+	{
+		cout << "载入点云错误" << path.toStdString() << endl;
+		return;
+	}
+	
+	scanVisualizer->ScanTaskDispPoints(rawPointCloud);
 	/*
 	装载debug点云数据
 	laserPoints3D.release();
@@ -313,19 +381,3 @@ void Slurry::toolMoveBackward1cm()
 
 	RobotController::GetInstance()->MoveLine(frm, 0.01);
 }
-
-/*
-开始扫描并回调存储数据+
-各状态均能回到初始化并重新开始
-******************************
-状态：
-#1 初始化 播放语音提示
-#2 等待按钮 如果已按下则发送运动
-#3 监视运动情况  如果出错则停止 松开则停止
-#4 等待进入下一录制阶段
-#5 等待按钮 按下即发送指令 并开始录制路径
-#6 每个数据包录制路径 判断是否结束
-#7 录制结束 若有按钮则沿原路径返回
-#8 等待按下按钮 即自动播放指令 注意监测异常
-在定时器startTimer(0)空闲事件中使用协程更方便编写逻辑 但需要引入第三方库 暂不采用
-*/

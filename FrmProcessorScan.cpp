@@ -279,7 +279,7 @@ void FrmProcessorScan::_DATA::_procEven(Mat& src, struct _TIMESTAMP& stamp)
 	}
 
 	//显示点云数据
-	GlobalShared::slurry->scanVisualizer->ScanTaskShotPoints(point_cloud);
+	GlobalShared::slurry->scanShotFrame(point_cloud);
 	point_cloud = pcl::PointCloud<pcl::PointXYZRGB>::Ptr(new pcl::PointCloud<pcl::PointXYZRGB>);
 
 }

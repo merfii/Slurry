@@ -2,10 +2,12 @@
 
 #include <fstream>
 #include <memory>
+
 #include <QScreen>
 #include <QGuiApplication>
 #include <QMessageBox>
 #include <QTimer>
+#include <QMutex>
 
 #include <opencv2/core.hpp>
 
@@ -24,6 +26,7 @@
 #include "PathRecorder.h"
 #include "ScanVisualizer.h"
 #include "ToolCalibrationDialog.h"
+#include "TestPointsGenerator.h"
 
 #include "Slurry.h"
 
@@ -34,17 +37,19 @@ Slurry::Slurry(QWidget *parent)
 
 	recorder = new PathRecorder;
 	scanVisualizer = new ScanVisualizer;
-	
+	pointCloudMutex = new QMutex;
+
 	slurryInit();
 	ctInit();
 	scanVisualizer->SetVtkWindow(ui.vtkWindow);
-	scanVisualizer->ScanMainInit();
-	scanVisualizer->ScanTaskInit();
+	scanVisualizer->MainInit();
+	//scanVisualizer->ScanTaskInit();
+	scanClear();
 
 	//cameraInit();
 	Logger::PrintLog(QStringLiteral("初始化完成"));
 	//SystemParameter::GetInstance();	//make it construct
-	//createPointsGenerator();
+	createPointsGenerator();
 }
 
 void Slurry::slurryInit()
@@ -77,6 +82,7 @@ Slurry::~Slurry()
 {
 	delete recorder;
 	delete scanVisualizer;
+	delete pointCloudMutex;
 }
 
 void Slurry::closeEvent(QCloseEvent *event)
@@ -97,6 +103,8 @@ void Slurry::closeEvent(QCloseEvent *event)
 	}
 	//GlobalShared::app->processEvents(QEventLoop::WaitForMoreEvents, 500);
 	//QTest::qSleep(500);
+	generator->closeGenerator();
+	delete generator;
 	QMainWindow::closeEvent(event);
 }
 

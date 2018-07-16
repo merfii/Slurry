@@ -1,6 +1,8 @@
 #pragma once
 
 #include <QtWidgets/QMainWindow>
+#include <pcl/point_cloud.h>
+#include <pcl/point_types.h>
 
 #include "ui_Slurry.h"
 
@@ -18,12 +20,14 @@ Eigen解决矩阵运算 多项式插值 拟合 spline
 MRPT未使用 前向运动学 PnP测量 spline和拟合(部分)
 */
 
+class QMutex;
 class RobotControllerDialog;
 class SystemParameter;
 class LaserDialog;
 class PathRecorder;
 class RobotPath;
 class ScanVisualizer;
+class TestPointsGenerator;
 using cv::Mat;
 
 class Slurry : public QMainWindow
@@ -64,6 +68,7 @@ public slots:
 	void scanTeach();
 	void scanTeachTest();
 	void scanStart();
+	void scanShotFrame(pcl::PointCloud<pcl::PointXYZRGB>::Ptr slicePoints);
 	void scanClear();
 	void scanSaveData();
 	void scanLoadData();
@@ -73,6 +78,9 @@ public slots:
 	void toolMoveBackward1cm();
 
 private:
+	pcl::PointCloud<pcl::PointXYZRGB>::Ptr rawPointCloud;
+	std::vector<pcl::PointCloud<pcl::PointXYZRGB>::Ptr> slicePointCloud;
+	QMutex *pointCloudMutex;
 	PathRecorder *recorder;
 	ScanVisualizer *scanVisualizer;
 	friend class FrmProcessorScan;
@@ -104,5 +112,9 @@ private:
 	double targetP1[3], targetP2[3];
 protected:
 	void timerEvent(QTimerEvent *event);
+
+
+private:	//用于调试
+	TestPointsGenerator *generator;
 };
 

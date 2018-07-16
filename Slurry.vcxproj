@@ -266,10 +266,6 @@
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
     </ClCompile>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="PCL_implements.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
-    </ClCompile>
     <ClCompile Include="SlurryRobotController.cpp" />
     <ClCompile Include="RobotController\libs\RobotState.cpp" />
     <ClCompile Include="RobotController\libs\RobotStateRT.cpp" />
@@ -292,10 +288,7 @@
     <ClCompile Include="Slurry.cpp" />
     <ClCompile Include="SystemParameter.cpp" />
     <ClCompile Include="test.cpp" />
-    <ClCompile Include="TestPointsGenerator.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
-    </ClCompile>
+    <ClCompile Include="TestPointsGenerator.cpp" />
     <ClCompile Include="ToolCalibrationDialog.cpp" />
     <ClCompile Include="vtkGuiderWidget.cpp" />
     <ClCompile Include="vtkRobotModel.cpp" />

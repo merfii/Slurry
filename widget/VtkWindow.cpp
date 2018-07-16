@@ -179,15 +179,18 @@ void VtkWindow::SetViewpointCT()
 QString VtkWindow::AddActorTS(vtkProp *actor, QString label)
 {
 	mActorsId++;
+
 	if (label.isEmpty())
 	{
 		label = QString("_Actor%1").arg(mActorsId, 3, QChar('0'));
 	}
+
 	QMetaObject::invokeMethod(this, "_addActor", Qt::QueuedConnection,
 		Q_ARG(vtkProp*, actor), Q_ARG(QString, label));
 	return label;
 }
 
+#include <QThread>
 void VtkWindow::_addActor(vtkProp *actor, QString label)
 {
 	static_cast<vtkRenderer*>(mRenderer)->AddActor(actor);

@@ -2,6 +2,7 @@
 #include <memory>
 #include <random>
 #include "ScanVisualizer.h"
+#include "GlobalShared.h"
 
 class TestPointsGenerator : public QThread
 {
@@ -9,10 +10,11 @@ class TestPointsGenerator : public QThread
 public:
 	void run() override;
 	void creatPoints();
+	void closeGenerator();
 
 	int count;
 	std::default_random_engine rengine;
-	ScanVisualizer *scanVisualizer;
+	bool should_exit;
 };
 
 
