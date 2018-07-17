@@ -36,7 +36,7 @@
 using std::cout;
 using std::endl;
 
-#define POINT_NEIGHBOR_DIST 0.006
+#define POINT_NEIGHBOR_DIST 0.008
 #define QWIDGET2VTKWINDOW(widget) static_cast<VtkWindow*>(widget)
 #define PDATA2SCANTASKDATA(dat) static_cast<ScanTaskData*>(dat)
 //#define SQUARED_DIST(VecA, VecB) ((VecA[0]-VecB[0])*(VecA[0]-VecB[0])+(VecA[1]-VecB[1])*(VecA[1]-VecB[1])+(VecA[2]-VecB[2])*(VecA[2]-VecB[2]))
@@ -104,8 +104,6 @@ void ScanVisualizer::ScanTaskInit()
 static void createActorFromVTKDataSet(const vtkSmartPointer<vtkDataSet> &data, vtkActor *actor);
 void ScanVisualizer::ScanTaskDispPoints(pcl::PointCloud<pcl::PointXYZRGB>::Ptr pointCloud, int Nmax)
 {
-	if (pointCloud->size() <= 1)
-		return;
 	QMutexLocker locker(&mutex);
 
 	vtkSmartPointer<vtkPolyData> polydata = vtkSmartPointer<vtkPolyData>::New();
@@ -123,12 +121,12 @@ void ScanVisualizer::ScanTaskDispPoints(pcl::PointCloud<pcl::PointXYZRGB>::Ptr p
 
 	//对数据进行降采样
 	float idxA = 0, idxB = 0;
-	float deltaB = (float)Nmax / pointCloud->size();
+	float deltaB = Nmax / (pointCloud->size()+0.5);	//这个0.5是为了避免浮点误差造成的不确定性
 
 	for (auto it = pointCloud->begin(); it != pointCloud->end(); it++)
 	{
 		idxB += deltaB;
-		if (idxA >= idxB){
+		if (idxA > idxB){
 			continue;
 		}
 		vertices->InsertCellPoint(points->InsertNextPoint(it->x, it->y, it->z));
@@ -141,6 +139,7 @@ void ScanVisualizer::ScanTaskDispPoints(pcl::PointCloud<pcl::PointXYZRGB>::Ptr p
 	polydata->SetVerts(vertices);
 	//	cout << polydata->GetNumberOfPoints() << endl;
 	//	cout << polydata->GetNumberOfCells() << endl;
+	//	cout << "debug:" << debug << endl;
 
 	// Create an Actor
 	vtkActor* actor = vtkActor::New();
@@ -217,6 +216,7 @@ void ScanVisualizer::ScanTaskDispSurface(pcl::PointCloud<pcl::PointXYZRGB>::Ptr 
 	auto itB = sliceB->begin();
 
 	int prevIdA = -1, prevIdB = -1;
+	int prevValid = 0;
 	pcl::PointXYZRGB prevA, prevB;
 	while (itA != sliceA->end() && itB != sliceB->end())
 	{
@@ -227,20 +227,24 @@ void ScanVisualizer::ScanTaskDispSurface(pcl::PointCloud<pcl::PointXYZRGB>::Ptr 
 			_INSERT_POINT(polyPoints, polyNorms, polyColors, prevIdB, itB);
 			itA++;
 			itB++;
+			prevValid = 1;
 		}
 		else if (prevIdA < 0){
 			if (_dist_point(*itA, prevB) < POINT_NEIGHBOR_DIST*POINT_NEIGHBOR_DIST){
 				prevA = *itA;
 				_INSERT_POINT(polyPoints, polyNorms, polyColors, prevIdA, itA);
 				itA++;
+				prevValid = 1;
 			}
 			else if (_dist_point(*itA, prevB) > _dist_point(*itA, *itB)){
 				prevB = *itB;
 				_INSERT_POINT(polyPoints, polyNorms, polyColors, prevIdB, itB);
 				itB++;
+				prevValid = 1;
 			}
 			else{
 				itA++;
+				prevValid = 0;
 			}
 		}
 		else if (prevIdB < 0){
@@ -248,35 +252,64 @@ void ScanVisualizer::ScanTaskDispSurface(pcl::PointCloud<pcl::PointXYZRGB>::Ptr 
 				prevB = *itB;
 				_INSERT_POINT(polyPoints, polyNorms, polyColors, prevIdB, itB);
 				itB++;
+				prevValid = 1;
 			}
 			else if (_dist_point(*itB, prevA) > _dist_point(*itB, *itA)){
 				prevA = *itA;
 				_INSERT_POINT(polyPoints, polyNorms, polyColors, prevIdA, itA);
-				itA++;
+				itA++; prevValid = 1;
 			}
 			else{
 				itB++;
+				prevValid = 0;
 			}
 		}
 		else // prevIdA >0 && prevIdB >0
 		{
 			if (_dist_point(*itA, prevB) < _dist_point(*itB, prevA)){
-				vtkPtId[0] = prevIdA;
-				vtkPtId[1] = prevIdB;
-				_INSERT_POINT(polyPoints, polyNorms, polyColors, prevIdA, itA);
-				vtkPtId[2] = prevIdA;
-				polyTriangles->InsertNextCell(3, vtkPtId);
-				prevA = *itA;
-				itA++;
+				if (_dist_point(*itA, prevB) < POINT_NEIGHBOR_DIST*POINT_NEIGHBOR_DIST &&
+					_dist_point(*itA, prevA) < POINT_NEIGHBOR_DIST*POINT_NEIGHBOR_DIST)
+				{
+					vtkPtId[0] = prevIdA;
+					vtkPtId[1] = prevIdB;
+					_INSERT_POINT(polyPoints, polyNorms, polyColors, prevIdA, itA);
+					vtkPtId[2] = prevIdA;
+					polyTriangles->InsertNextCell(3, vtkPtId);
+					prevA = *itA;
+					itA++;
+					prevValid = 1;
+				}
+				else{
+					if (prevValid == 0){
+						prevIdA = prevIdB = -1;
+					}
+					else{
+						prevValid = 0;
+						itA++;
+					}
+				}
 			}
 			else{
-				vtkPtId[0] = prevIdA;
-				vtkPtId[1] = prevIdB;
-				_INSERT_POINT(polyPoints, polyNorms, polyColors, prevIdB, itB);
-				vtkPtId[2] = prevIdB;
-				polyTriangles->InsertNextCell(3, vtkPtId);
-				prevB = *itB;
-				itB++;
+				if (_dist_point(*itB, prevB) < POINT_NEIGHBOR_DIST*POINT_NEIGHBOR_DIST &&
+					_dist_point(*itB, prevA) < POINT_NEIGHBOR_DIST*POINT_NEIGHBOR_DIST)
+				{
+					vtkPtId[0] = prevIdA;
+					vtkPtId[1] = prevIdB;
+					_INSERT_POINT(polyPoints, polyNorms, polyColors, prevIdB, itB);
+					vtkPtId[2] = prevIdB;
+					polyTriangles->InsertNextCell(3, vtkPtId);
+					prevB = *itB;
+					itB++;
+				}
+				else{
+					if (prevValid == 0){
+						prevIdA = prevIdB = -1;
+					}
+					else{
+						prevValid = 0;
+						itB++;
+					}
+				}
 			}
 		}
 	}
@@ -397,7 +430,6 @@ void ScanVisualizer::ScanTaskEnd()
 
     sor.setNegative(true);
     sor.filter(*cloud_outliner);
-
 
 	*/
 	//点云合并 全部显示

@@ -21,7 +21,7 @@
 
 #include "Slurry.h"
 
-#define MAX_POINTS_PER_SLICE 100
+#define MAX_POINTS_PER_SLICE 200
 
 void Slurry::scanTeach()
 {
@@ -99,7 +99,7 @@ void Slurry::scanStart()
 			{
 				if (ui.buttonTeachPlay->isChecked())
 				{
-					recorder->playReversed(0.12);
+					recorder->playReversed(0.06);
 				}
 			}
 		}
@@ -114,23 +114,26 @@ void Slurry::scanStart()
 	}
 }
 
+
 void Slurry::scanShotFrame(pcl::PointCloud<pcl::PointXYZRGB>::Ptr slicePoints)
 {
+	if (slicePoints->size() <= 0)
+		return;
+
 	pointCloudMutex->lock();
 		*rawPointCloud += *slicePoints;
 	pointCloudMutex->unlock();
 
-
 	//slicePoints内部数据用于三角重建  计算量较大，有必要先进行降采样
 	//对数据进行降采样
 	float idxA = 0, idxB = 0;
-	float deltaB = (float)MAX_POINTS_PER_SLICE / slicePoints->size();
+	float deltaB = MAX_POINTS_PER_SLICE / (slicePoints->size() + 0.5);
 	pcl::PointCloud<pcl::PointXYZRGB>::Ptr downSlice(new pcl::PointCloud<pcl::PointXYZRGB>); 
 
 	for (auto it = slicePoints->begin(); it != slicePoints->end(); it++)
 	{
 		idxB += deltaB;
-		if (idxA >= idxB){
+		if (idxA > idxB){
 			continue;
 		}
 		downSlice->push_back(*it);
@@ -140,8 +143,8 @@ void Slurry::scanShotFrame(pcl::PointCloud<pcl::PointXYZRGB>::Ptr slicePoints)
 	pointCloudMutex->lock();
 		slicePointCloud.push_back(downSlice);
 	pointCloudMutex->unlock();
-	
 	scanVisualizer->ScanTaskDispPoints(slicePoints);
+
 	int Nold = slicePointCloud.size();
 	if (Nold >= 2){
 		scanVisualizer->ScanTaskDispSurface(slicePointCloud[Nold - 2], slicePointCloud[Nold - 1]);

@@ -75,5 +75,5 @@ ipch/
 *.suo
 *.user
 *.sln.docstates
-
+*.log
 

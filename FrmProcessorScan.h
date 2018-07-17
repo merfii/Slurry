@@ -9,6 +9,7 @@
 #include "FrameProcessor.h"
 
 #define ROI_OFFSET 700
+#define PADDING_WIDTH 100
 
 class vpHomogeneousMatrix;
 class QElapsedTimer;

@@ -182,6 +182,7 @@ FrmProcessorScan::_DATA::~_DATA()
 	delete tcpMeye;
 }
 
+static Mat laserPaddingCrop(Mat& src, int left, int right);
 static std::vector<vpColor> colorLineDetect(Mat& oddImg, Mat& laserPoints2D);
 static void point2Dto3D(Mat& plane, Mat& p2d, std::vector<vpColor>& colorIn, std::vector<vpColVector>& p3d, std::vector<vpColor>& colorOut);
 void FrmProcessorScan::_DATA::_procEven(Mat& src, struct _TIMESTAMP& stamp)
@@ -219,6 +220,7 @@ void FrmProcessorScan::_DATA::_procEven(Mat& src, struct _TIMESTAMP& stamp)
 	if (laserPoints2D.empty())	
 		return;
 
+	laserPoints2D = laserPaddingCrop(laserPoints2D, PADDING_WIDTH, diff.cols - PADDING_WIDTH);
 	std::vector<vpColor> colorPoints2D = colorLineDetect(oddImg, laserPoints2D);
 
 	for (int i = 0; i < laserPoints2D.rows; i++)
@@ -261,6 +263,8 @@ void FrmProcessorScan::_DATA::_procEven(Mat& src, struct _TIMESTAMP& stamp)
 	{
 		vpColVector& p = laserPoints3D[i];
 		vpColor& c = colorPoints3D[i];
+
+
 		pcl::PointXYZRGB point;
 		point.x = p[0];
 		point.y = p[1];
@@ -343,4 +347,23 @@ static void point2Dto3D(Mat& plane, Mat& p2d, std::vector<vpColor>& colorIn, std
 		p3d.push_back(vpp);
 		colorOut.push_back(colorIn[i]);
 	}
+}
+
+static Mat laserPaddingCrop(Mat& src, int left, int right)
+{
+	Mat out;// = src.clone();
+	out.create(src.size(), src.type());
+	int j = 0;
+	for (int i = 0; i < src.rows; i++)
+	{
+		int x = (int)src.ptr<double>(i)[0];
+		//int y = (int)src.ptr<double>(i)[1];
+		if (x > left && x < right){
+			out.ptr<double>(j)[0] = src.ptr<double>(i)[0];
+			out.ptr<double>(j)[1] = src.ptr<double>(i)[1];
+			j++;
+		}
+	}
+	out.resize(j);
+	return out;
 }

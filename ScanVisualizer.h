@@ -25,7 +25,7 @@ public:
 	
 	void ScanTaskInit();
 	//以点的形式直接显示 每次最多显示Nmax个点，超过则降采样
-	void ScanTaskDispPoints(pcl::PointCloud<pcl::PointXYZRGB>::Ptr pointCloud, int Nmax = 500);
+	void ScanTaskDispPoints(pcl::PointCloud<pcl::PointXYZRGB>::Ptr pointCloud, int Nmax = 400);
 	//本函数隐含假定两次扫描之间的点云基本平行
 	void ScanTaskDispSurface(pcl::PointCloud<pcl::PointXYZRGB>::Ptr sliceA, pcl::PointCloud<pcl::PointXYZRGB>::Ptr sliceB);
 	void ScanTaskClear();

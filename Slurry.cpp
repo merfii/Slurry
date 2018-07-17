@@ -38,6 +38,7 @@ Slurry::Slurry(QWidget *parent)
 	recorder = new PathRecorder;
 	scanVisualizer = new ScanVisualizer;
 	pointCloudMutex = new QMutex;
+	generator = nullptr;
 
 	slurryInit();
 	ctInit();
@@ -46,10 +47,10 @@ Slurry::Slurry(QWidget *parent)
 	//scanVisualizer->ScanTaskInit();
 	scanClear();
 
-	//cameraInit();
+	cameraInit();
 	Logger::PrintLog(QStringLiteral("初始化完成"));
 	//SystemParameter::GetInstance();	//make it construct
-	createPointsGenerator();
+	//createPointsGenerator();
 }
 
 void Slurry::slurryInit()
@@ -103,8 +104,10 @@ void Slurry::closeEvent(QCloseEvent *event)
 	}
 	//GlobalShared::app->processEvents(QEventLoop::WaitForMoreEvents, 500);
 	//QTest::qSleep(500);
-	generator->closeGenerator();
-	delete generator;
+	if (generator){
+		generator->closeGenerator();
+		delete generator;
+	}
 	QMainWindow::closeEvent(event);
 }
 
